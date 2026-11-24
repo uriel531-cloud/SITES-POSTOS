@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="pt-BR" data-m-cards="subir">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modelos de site para posto</title>
+<meta name="description" content="Cinco modelos de site para posto de combustível, com seletor de cores e de animações.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#111317">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--fundo:#111317;--fundo-2:#171A1F;--card:#1D2128;--texto:#F2F4F7;--suave:#A8B0BB;--linha:rgba(255,255,255,.10);--marca:#F5A524;--destaque:#FF6B2C;--marca-texto:#111418;--marca-esc:#F7B54B;--marca-forte:#F5A524;--sobre-foto:#FFFFFF;--topo:0px;--m-vel:1;--m-dist:1;--titulo:'Inter',system-ui,sans-serif;--corpo:'Inter',system-ui,sans-serif}
+/* ==========================================================================
+   NÚCLEO COMUM DOS 5 MODELOS
+   Todas as cores vêm das variáveis do :root (trocadas pelo painel Personalizar).
+   ========================================================================== */
+
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--topo) + 12px);-webkit-text-size-adjust:100%}
+body{font-family:var(--corpo);background:var(--fundo);color:var(--texto);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+ul{list-style:none}
+h1,h2,h3,h4{font-family:var(--titulo);line-height:1.08;letter-spacing:-.015em;font-weight:700}
+h2{font-size:clamp(30px,4.6vw,50px)}
+h3{font-size:clamp(19px,2vw,22px)}
+p{max-width:65ch}
+table{border-collapse:collapse}
+:focus-visible{outline:3px solid var(--marca-forte);outline-offset:3px;border-radius:4px}
+::selection{background:var(--marca);color:var(--marca-texto)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.pular{position:fixed;left:16px;top:-80px;z-index:100;background:var(--marca);color:var(--marca-texto);padding:12px 18px;border-radius:8px;font-weight:700;text-decoration:none}
+.pular:focus{top:12px}
+.wrap{width:min(1200px,100% - 32px);margin-inline:auto}
+.secao{padding:clamp(72px,10vw,120px) 0;position:relative}
+.secao.alt{background:var(--fundo-2)}
+.cab{max-width:720px;margin-bottom:clamp(36px,5vw,56px)}
+.cab.centro{margin-inline:auto;text-align:center}
+.cab.centro p{margin-inline:auto}
+.rotulo{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--marca-forte);margin-bottom:14px}
+.rotulo::before{content:"";width:22px;height:2px;background:currentColor}
+.sub{color:var(--suave);font-size:clamp(16px,1.7vw,18.5px);margin-top:14px}
+.nota{font-size:14px;color:var(--suave)}
+
+/* ---------- Botões ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 24px;border-radius:var(--raio-btn,10px);font-weight:700;font-size:16px;text-decoration:none;line-height:1.2;transition:transform .18s,background-color .18s,border-color .18s,color .18s;border:2px solid transparent}
+.btn svg{width:20px;height:20px;flex:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-prim{background:var(--marca);color:var(--marca-texto)}
+.btn-prim:hover{background:var(--marca-esc)}
+.btn-sec{border-color:color-mix(in srgb,var(--texto) 30%,transparent);color:var(--texto)}
+.btn-sec:hover{background:color-mix(in srgb,var(--texto) 7%,transparent)}
+.btn-foto{border-color:color-mix(in srgb,var(--sobre-foto) 55%,transparent);color:var(--sobre-foto)}
+.btn-foto:hover{background:color-mix(in srgb,var(--sobre-foto) 12%,transparent)}
+.acoes{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---------- Ícones ---------- */
+.ic{width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Cabeçalho (M3) ---------- */
+.topo{position:fixed;inset:0 0 auto;z-index:60;height:var(--topo);display:flex;align-items:center;border-bottom:1px solid transparent;color:var(--texto);transition:background-color .3s,border-color .3s,color .3s}
+.topo-sobre-foto .topo:not(.rolou):not(.aberto){color:var(--sobre-foto)}
+.topo.rolou,.topo.aberto{background:color-mix(in srgb,var(--fundo) 93%,transparent);border-color:var(--linha);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.topo>.wrap{display:flex;align-items:center;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;min-height:44px}
+.logo .vaga-logo{display:none;height:46px;width:auto;border:0;background:none;border-radius:0;aspect-ratio:auto!important}
+.logo .vaga-logo img{position:static;height:46px;width:auto;object-fit:contain;opacity:1}
+.logo.tem-logo .vaga-logo{display:block}
+.logo.tem-logo .logo-nome{display:none}
+.logo-nome{font-family:var(--titulo);font-weight:800;font-size:21px;letter-spacing:-.01em;line-height:1.05}
+.menu{display:flex;align-items:center;gap:6px}
+.menu a{text-decoration:none;font-weight:600;font-size:15px;padding:10px 12px;border-radius:8px;opacity:.88}
+.menu a:hover{opacity:1;background:color-mix(in srgb,currentColor 10%,transparent)}
+.topo .btn{min-height:44px;padding:10px 18px;font-size:15px}
+.burger{display:none;width:46px;height:46px;border-radius:10px;align-items:center;justify-content:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:22px;height:2px;background:currentColor;border-radius:2px;transition:transform .25s,opacity .25s;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-7px}.burger span::after{top:7px}
+.aberto .burger span{background:transparent}
+.aberto .burger span::before{transform:translateY(7px) rotate(45deg);background:currentColor}
+.aberto .burger span::after{transform:translateY(-7px) rotate(-45deg);background:currentColor}
+@media (max-width:960px){
+  .burger{display:inline-flex}
+  .topo .btn-topo{display:none}
+  .menu{position:fixed;left:0;right:0;top:var(--topo);flex-direction:column;align-items:stretch;gap:2px;padding:12px 16px 20px;background:var(--fundo);border-bottom:1px solid var(--linha);box-shadow:0 20px 40px color-mix(in srgb,var(--texto) 14%,transparent);transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s;color:var(--texto)}
+  .menu a{padding:14px 12px;font-size:17px}
+  .menu .btn{margin-top:8px}
+  .aberto .menu{opacity:1;transform:none;visibility:visible}
+}
+@media (min-width:961px){.menu .btn{display:none}}
+
+/* ---------- Vagas de foto ---------- */
+.foto{position:relative;overflow:hidden;border-radius:var(--raio-foto,14px);display:flex;align-items:center;justify-content:center;container-type:inline-size;
+  background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--texto) 6%,transparent) 0 12px,transparent 12px 24px),var(--fundo-2);
+  border:1.5px dashed color-mix(in srgb,var(--texto) 32%,transparent);color:var(--texto)}
+.foto>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
+.foto.tem-foto{border-color:transparent;background:var(--fundo-2)}
+.foto.tem-foto>img{opacity:1}
+.foto-ph{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px;max-width:38ch;text-align:center;font-family:var(--corpo);font-size:12.5px;line-height:1.45;color:var(--texto)}
+.foto-ph .ic{width:30px;height:30px;color:var(--suave);margin-bottom:2px}
+.foto-ph b{font-size:13px;letter-spacing:.03em;word-break:break-all}
+.foto-ph .ph-tam{color:var(--suave);font-weight:600}
+.tem-foto>.foto-ph{display:none}
+@container (max-width:240px){.foto-ph .ph-desc{display:none}.foto-ph{gap:2px;padding:8px}}
+@container (max-width:150px){.foto-ph .ph-tam,.foto-ph .ic{display:none}}
+.foto-fundo{position:absolute!important;inset:0;border-radius:0;border:0;aspect-ratio:auto!important}
+.vaga-marca{background:var(--card);border-style:dashed}
+.vaga-marca>img{object-fit:contain;padding:10%}
+
+/* ---------- Reveal ao rolar (bloco "Cards e blocos") ---------- */
+.rv{transition:opacity calc(.75s * var(--m-vel)) cubic-bezier(.2,.7,.2,1) calc(var(--i,0) * 70ms),transform calc(.75s * var(--m-vel)) cubic-bezier(.2,.7,.2,1) calc(var(--i,0) * 70ms)}
+.js[data-m-cards="subir"] .rv:not(.visto),.js[data-m-cards="inclinar"] .rv:not(.visto){opacity:0;transform:translate3d(0,calc(28px * var(--m-dist)),0)}
+.js[data-m-cards="escala"] .rv:not(.visto){opacity:0;transform:scale(calc(1 - .06 * var(--m-dist)))}
+.tilt-on{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out}
+.js[data-m-cards="inclinar"] .rv.visto.tilt-on{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+
+/* ---------- Topo: entrada (bloco "Entrada do topo") ---------- */
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.hero h1 .ln>span{display:block}
+.pw{display:inline-block}
+.js[data-m-hero="cascata"] .hero.h-play .h-in,
+.js[data-m-hero="mascara"] .hero.h-play .h-in:not(h1),
+.js[data-m-hero="palavras"] .hero.h-play .h-in:not(h1),
+.js[data-m-hero="foco"] .hero.h-play .h-in:not(h1){animation:subir calc(.9s * var(--m-vel)) cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 90ms)}
+.js[data-m-hero="mascara"] .hero.h-play h1 .ln>span{animation:mascara calc(1s * var(--m-vel)) cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--l,0) * 110ms)}
+.js[data-m-hero="palavras"] .hero.h-play h1 .pw{animation:subir calc(.7s * var(--m-vel)) cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--w,0) * 55ms)}
+.js[data-m-hero="foco"] .hero.h-play .h-in{animation:foco calc(1.1s * var(--m-vel)) ease-out both;animation-delay:calc(var(--i,0) * 90ms)}
+@keyframes subir{from{opacity:0;transform:translate3d(0,calc(22px * var(--m-dist)),0)}to{opacity:1;transform:none}}
+@keyframes mascara{from{transform:translate3d(0,105%,0)}to{transform:none}}
+@keyframes foco{from{opacity:0;filter:blur(10px)}to{opacity:1;filter:blur(0)}}
+
+/* ---------- Topo: foto (bloco "Foto do topo") ---------- */
+.hero-media{overflow:hidden}
+.js[data-m-foto="zoom"] .hero.h-play .hero-media img{animation:zoom calc(14s * var(--m-vel)) ease-out both}
+.js[data-m-foto="cortina"] .hero.h-play .hero-media{animation:cortina calc(1.15s * var(--m-vel)) cubic-bezier(.7,0,.2,1) both}
+.js[data-m-foto="parallax"] .hero-media img{transform:translate3d(0,var(--par,0px),0) scale(1.14);will-change:transform}
+@keyframes zoom{from{transform:scale(1.07)}to{transform:scale(1)}}
+@keyframes cortina{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+
+/* ---------- Topo: fundo (bloco "Fundo do topo") ---------- */
+.hero-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.hero-linhas{display:none;position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.js[data-m-fundo="linhas"] .hero-linhas{display:block}
+.hero-linhas i{position:absolute;top:-10%;bottom:-10%;width:3px;opacity:.22;background:linear-gradient(180deg,var(--marca) 50%,transparent 0) 0 0/3px 46px;animation:descer calc(2.4s * var(--m-vel)) linear infinite}
+.hero-linhas i:nth-child(1){left:14%}.hero-linhas i:nth-child(2){left:50%;animation-duration:calc(1.9s * var(--m-vel))}.hero-linhas i:nth-child(3){left:86%;animation-duration:calc(2.8s * var(--m-vel))}
+@keyframes descer{to{background-position:0 46px}}
+
+/* ---------- Bandeira (bloco "Bandeira") ---------- */
+.bandeira-area{display:grid;gap:28px;justify-items:center}
+.selo-palco{perspective:900px;display:flex;justify-content:center}
+.selo{transition:transform calc(1s * var(--m-vel)) cubic-bezier(.2,.8,.2,1),opacity calc(.8s * var(--m-vel))}
+.selo-cartao{position:relative;width:min(280px,72vw);padding:22px;border-radius:24px;background:var(--card);border:1px solid var(--linha);box-shadow:0 24px 60px color-mix(in srgb,var(--texto) 14%,transparent);overflow:hidden;display:grid;gap:14px;justify-items:center;text-align:center}
+.selo-cartao .foto{width:100%;aspect-ratio:1/1}
+.selo-cartao p{font-weight:700;font-family:var(--titulo);font-size:18px;line-height:1.2}
+.selo-cartao::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,color-mix(in srgb,var(--sobre-foto) 60%,transparent) 50%,transparent 65%);transform:translateX(-130%);opacity:0}
+.js[data-m-bandeira="brilho"] .selo-cartao::after{opacity:1;animation:brilho calc(4s * var(--m-vel)) ease-in-out infinite}
+@keyframes brilho{0%{transform:translateX(-130%)}45%,100%{transform:translateX(130%)}}
+.js[data-m-bandeira="virar"] .selo:not(.visto){transform:rotateY(85deg);opacity:0}
+.js[data-m-bandeira="pulsar"] .selo-cartao{animation:pulsar calc(3s * var(--m-vel)) ease-out infinite}
+@keyframes pulsar{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--marca) 55%,transparent)}70%,100%{box-shadow:0 0 0 26px color-mix(in srgb,var(--marca) 0%,transparent)}}
+.js[data-m-bandeira="flutuar"] .selo-cartao{animation:flutuar calc(6s * var(--m-vel)) ease-in-out infinite}
+@keyframes flutuar{0%,100%{transform:translateY(0)}50%{transform:translateY(calc(-12px * var(--m-dist)))}}
+.totem{display:none;flex-direction:column;align-items:center;transition:transform calc(1.1s * var(--m-vel)) cubic-bezier(.2,.8,.2,1),opacity calc(.8s * var(--m-vel))}
+.js[data-m-bandeira="totem"] .totem{display:flex}
+.js[data-m-bandeira="totem"] .selo-palco{display:none}
+.js[data-m-bandeira="totem"] .totem:not(.visto){transform:translate3d(0,80px,0);opacity:0}
+.totem-placa{width:min(290px,80vw);background:var(--card);border:1px solid var(--linha);border-radius:18px 18px 10px 10px;padding:16px;display:grid;gap:10px;box-shadow:0 30px 60px color-mix(in srgb,var(--texto) 16%,transparent)}
+.totem-placa .foto{aspect-ratio:1/1;width:62%;margin:0 auto}
+.totem-linha{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--fundo);border-radius:8px;padding:8px 12px;font-weight:700}
+.totem-linha>span:first-child{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--suave)}
+.totem-linha [data-num]{font-family:var(--titulo);font-size:22px;color:var(--marca-forte)}
+.totem-poste{width:30px;height:90px;background:linear-gradient(90deg,var(--linha),var(--card),var(--linha));border-inline:1px solid var(--linha)}
+.totem-base{width:120px;height:14px;border-radius:6px 6px 0 0;background:var(--card);border:1px solid var(--linha)}
+
+/* ---------- Parceiros (bloco "Parceiros") ---------- */
+.parc-palco{position:relative}
+.parc-item{flex:0 0 auto;width:200px}
+.parc-item .foto{aspect-ratio:5/2;border-radius:12px}
+.parc-grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.parc-grade .parc-item{width:auto}
+.pf-trilho{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent)}
+.pf-trilho+.pf-trilho{margin-top:16px}
+.pf-faixa{display:flex;width:max-content;animation:rolarX calc(38s * var(--m-vel)) linear infinite}
+.pf-grupo{display:flex;gap:20px;padding-right:20px}
+.pf-rev .pf-faixa{animation-direction:reverse;animation-duration:calc(50s * var(--m-vel))}
+.pf-trilho:hover .pf-faixa,.pc-col:hover .pf-faixa{animation-play-state:paused}
+.pf-trilho .tem-foto img{filter:grayscale(1);opacity:.75;transition:filter .3s,opacity .3s}
+.pf-trilho .parc-item:hover .tem-foto img{filter:none;opacity:1}
+@keyframes rolarX{to{transform:translate3d(-50%,0,0)}}
+.pc-colunas{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;height:380px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent,black 14%,black 86%,transparent);mask-image:linear-gradient(180deg,transparent,black 14%,black 86%,transparent)}
+.pc-col .pf-faixa{flex-direction:column;width:auto;animation-name:rolarY;animation-duration:calc(30s * var(--m-vel))}
+.pc-col .pf-grupo{flex-direction:column;gap:16px;padding:0 0 16px}
+.pc-col:nth-child(2) .pf-faixa{animation-direction:reverse;animation-duration:calc(38s * var(--m-vel))}
+.pc-col .parc-item{width:100%}
+@keyframes rolarY{to{transform:translate3d(0,-50%,0)}}
+.pd-vista{overflow:hidden;padding:24px 0}
+.pd-trilho{display:flex;gap:20px;transition:transform calc(.8s * var(--m-vel)) cubic-bezier(.4,0,.2,1)}
+.pd-trilho .parc-item{transform:scale(.8);opacity:.5;transition:transform calc(.8s * var(--m-vel)),opacity calc(.8s * var(--m-vel))}
+.pd-trilho .parc-item.centro{transform:scale(1.08);opacity:1}
+.pd-trilho .parc-item:not(.centro) .tem-foto img{filter:grayscale(1)}
+.parc-cascata .parc-item{transition:opacity calc(.6s * var(--m-vel)) ease calc(var(--i,0) * 80ms),transform calc(.6s * var(--m-vel)) cubic-bezier(.2,.8,.2,1) calc(var(--i,0) * 80ms)}
+.parc-cascata .parc-item:not(.visto){opacity:0;transform:scale(.9)}
+
+/* ---------- Números (bloco "Preços e números") ---------- */
+[data-num]{font-variant-numeric:tabular-nums;white-space:nowrap}
+.dg{display:inline-block;height:1.15em;line-height:1.15em;overflow:hidden;vertical-align:bottom}
+.dg-col{display:flex;flex-direction:column;transform:translate3d(0,0,0);transition:transform calc(1.3s * var(--m-vel)) cubic-bezier(.2,.8,.2,1) calc(var(--i,0) * 65ms)}
+.dg-col span{display:block;height:1.15em}
+
+/* ---------- Motions fixos de cada modelo ---------- */
+/* M6 faixa infinita */
+.mq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent)}
+.mq-faixa{display:flex;width:max-content;animation:rolarX calc(var(--mq-dur,34s) * var(--m-vel)) linear infinite}
+.mq-grupo{display:flex;align-items:center;gap:var(--mq-gap,40px);padding-right:var(--mq-gap,40px)}
+.mq:hover .mq-faixa{animation-play-state:paused}
+.mq-rev .mq-faixa{animation-direction:reverse}
+/* M10 tracejado correndo */
+.tracejado{height:2px;background:linear-gradient(90deg,var(--marca) 50%,transparent 0) 0 0/12px 2px;animation:correr calc(.9s * var(--m-vel)) linear infinite}
+.tracejado-v{width:2px;background:linear-gradient(180deg,var(--marca) 50%,transparent 0) 0 0/2px 12px;animation:correrV calc(.9s * var(--m-vel)) linear infinite}
+@keyframes correr{to{background-position:12px 0}}
+@keyframes correrV{to{background-position:0 12px}}
+/* M11 flutuar */
+[data-flutuar]{animation:flutuar calc(6s * var(--m-vel)) ease-in-out infinite}
+/* M12 barras */
+.barra{height:12px;border-radius:99px;background:color-mix(in srgb,var(--texto) 10%,transparent);overflow:hidden}
+.barra i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--marca),var(--destaque));transform-origin:left;transform:scaleX(var(--v,1));transition:transform calc(1.1s * var(--m-vel)) cubic-bezier(.2,.8,.2,1) calc(var(--i,0) * 120ms)}
+.js [data-barras]:not(.visto) .barra i{transform:scaleX(0)}
+/* M9 inclinação + parallax */
+[data-tilt]{transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translate3d(0,var(--py,0px),0);transition:transform .3s ease-out;will-change:transform}
+/* M8 abas com barra de progresso */
+.abas-lista{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px}
+.abas-lista::-webkit-scrollbar{display:none}
+.aba{position:relative;flex:none;min-height:48px;padding:12px 18px;border-radius:12px;font-weight:700;font-size:15px;color:var(--suave);background:color-mix(in srgb,var(--texto) 5%,transparent);overflow:hidden;transition:background-color .2s,color .2s}
+.aba[aria-selected="true"]{background:var(--card);color:var(--texto);box-shadow:0 6px 18px color-mix(in srgb,var(--texto) 10%,transparent)}
+.aba::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--marca);transform:scaleX(0);transform-origin:left}
+.tocando .aba[aria-selected="true"]::after{animation:encher calc(5s * var(--m-vel)) linear forwards}
+.aba-painel{animation:painelIn calc(.6s * var(--m-vel)) cubic-bezier(.2,.7,.2,1)}
+@keyframes encher{to{transform:scaleX(1)}}
+@keyframes painelIn{from{opacity:0;transform:translate3d(0,14px,0)}to{opacity:1;transform:none}}
+/* M7 rolagem horizontal fixa */
+.hscroll{position:relative}
+.hscroll-fixo{display:flex;flex-direction:column;justify-content:center;gap:32px;overflow:hidden}
+.pilha{display:flex;gap:24px;padding-inline:max(16px,calc((100vw - 1200px) / 2));will-change:transform}
+.pilha-item{flex:0 0 min(440px,80vw);border-radius:var(--raio-foto,16px);overflow:hidden;background:var(--card);border:1px solid var(--linha);display:flex;flex-direction:column}
+.pilha-item .foto{border-radius:0;border-width:0 0 1.5px;aspect-ratio:4/3}
+.pilha-texto{padding:22px 22px 26px}
+.pilha-texto p{color:var(--suave);margin-top:8px;font-size:15.5px}
+.hscroll.motion .hscroll-fixo{position:sticky;top:var(--topo);height:calc(100vh - var(--topo));height:calc(100svh - var(--topo))}
+.hscroll.motion .pilha-item .foto img{transform:scale(1.16) translate3d(calc(var(--d,0) * -7%),0,0)}
+.hscroll:not(.motion) .pilha{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;padding-bottom:12px}
+.hscroll:not(.motion) .pilha-item{scroll-snap-align:center}
+
+/* ---------- Pausas: fora da tela, aba oculta ---------- */
+[data-loop]:not(.em-tela) *,[data-loop]:not(.em-tela) *::before,[data-loop]:not(.em-tela) *::after,
+.oculta *,.oculta *::before,.oculta *::after{animation-play-state:paused!important}
+
+/* ---------- Troca suave de cores ---------- */
+.trocando *,.trocando *::before,.trocando *::after{transition:background-color .4s,color .4s,border-color .4s,fill .4s,stroke .4s,box-shadow .4s!important}
+
+/* ---------- WhatsApp flutuante ---------- */
+.whats-flutua{position:fixed;right:18px;bottom:18px;z-index:55;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--marca);color:var(--marca-texto);box-shadow:0 12px 30px color-mix(in srgb,var(--texto) 28%,transparent);transition:transform .2s}
+.whats-flutua:hover{transform:scale(1.07)}
+.whats-flutua .ic{width:30px;height:30px}
+
+/* ---------- Painel Personalizar ---------- */
+.pz-botao{position:fixed;left:18px;bottom:18px;z-index:56;display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 18px 0 14px;border-radius:99px;background:var(--card);color:var(--texto);border:1px solid var(--linha);box-shadow:0 12px 30px color-mix(in srgb,var(--texto) 22%,transparent);font-weight:700;font-size:14px}
+.pz-botao .ic{color:var(--marca-forte)}
+.pz{position:fixed;left:18px;bottom:82px;z-index:70;width:min(400px,calc(100vw - 36px));max-height:min(640px,calc(100vh - 110px));overflow:auto;overscroll-behavior:contain;background:var(--card);color:var(--texto);border:1px solid var(--linha);border-radius:18px;box-shadow:0 30px 80px color-mix(in srgb,var(--texto) 30%,transparent);font-family:var(--corpo);font-size:14px;line-height:1.45}
+.pz[hidden]{display:none}
+.pz-cab{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:14px 14px 0 18px;background:var(--card)}
+#pz .pz-cab h2{font-size:17px;font-family:var(--corpo);letter-spacing:0}
+.pz-fechar{width:44px;height:44px;border-radius:10px;display:grid;place-items:center}
+.pz-fechar:hover{background:color-mix(in srgb,var(--texto) 8%,transparent)}
+.pz-abas{position:sticky;top:58px;z-index:2;display:flex;gap:6px;padding:8px 18px 12px;background:var(--card);border-bottom:1px solid var(--linha)}
+.pz-aba{flex:1;min-height:42px;border-radius:10px;font-weight:700;color:var(--suave);background:color-mix(in srgb,var(--texto) 5%,transparent)}
+.pz-aba[aria-selected="true"]{background:var(--marca);color:var(--marca-texto)}
+.pz-corpo{padding:16px 18px 18px;display:grid;gap:18px}
+.pz-corpo[hidden]{display:none}
+#pz h3{font-size:13px;font-family:var(--corpo);text-transform:uppercase;letter-spacing:.08em;color:var(--suave);margin-bottom:8px}
+.pz-paletas{display:flex;flex-wrap:wrap;gap:10px}
+.pz-paleta{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--linha);padding:4px;transition:transform .15s}
+.pz-paleta:hover{transform:scale(1.06)}
+.pz-paleta[aria-checked="true"]{border-color:var(--texto);box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--marca-forte)}
+.pz-paleta span{width:100%;height:100%;border-radius:50%;display:block}
+.pz-nome{margin-top:8px;font-weight:600}
+.pz-cor{display:flex;align-items:center;gap:12px;min-height:44px}
+.pz-cor input{width:48px;height:40px;border:1px solid var(--linha);border-radius:10px;background:none;padding:2px;cursor:pointer}
+.pz-aviso{color:var(--texto);background:color-mix(in srgb,var(--marca) 14%,var(--card));border-left:3px solid var(--marca-forte);padding:8px 10px;border-radius:6px;font-weight:600}
+.pz-aviso:empty{display:none}
+.pz-botoes{display:flex;flex-wrap:wrap;gap:8px}
+.pz-acao{min-height:42px;padding:8px 14px;border-radius:10px;font-weight:700;border:1.5px solid var(--linha);font-size:13.5px}
+.pz-acao:hover{background:color-mix(in srgb,var(--texto) 7%,transparent)}
+.pz-linha{display:grid;gap:8px;padding-bottom:14px;border-bottom:1px solid var(--linha)}
+.pz-linha-cab{display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:700}
+.pz-ver{min-height:36px;padding:4px 10px;border-radius:8px;font-size:12.5px;font-weight:700;color:var(--marca-forte)}
+.pz-ver:hover{background:color-mix(in srgb,var(--marca) 12%,transparent)}
+.pz-opcoes{display:flex;flex-wrap:wrap;gap:6px}
+.pz-op{min-height:36px;padding:6px 11px;border-radius:99px;font-size:13px;font-weight:600;border:1.5px solid var(--linha);color:var(--texto)}
+.pz-op[aria-checked="true"]{background:var(--marca);color:var(--marca-texto);border-color:var(--marca)}
+.pz-op:disabled{opacity:.45;cursor:not-allowed}
+.pz-status{min-height:20px;font-weight:700;color:var(--marca-forte)}
+@media (max-width:600px){
+  .pz{left:0;right:0;bottom:0;width:100%;max-height:82vh;border-radius:20px 20px 0 0}
+  .pz-botao{left:14px;bottom:14px;padding:0 14px}
+  .whats-flutua{right:14px;bottom:14px}
+}
+
+/* ---------- Componentes base (cada modelo personaliza no próprio CSS) ---------- */
+.hero{position:relative;overflow:hidden}
+.hero-txt{position:relative;z-index:2}
+.lead{font-size:clamp(17px,1.9vw,20px);max-width:54ch}
+.selos{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:28px;font-weight:600;font-size:15px}
+.selos li{display:flex;align-items:center;gap:8px}
+.selos .ic{width:20px;height:20px}
+.card{background:var(--card);border:1px solid var(--linha);border-radius:var(--raio-card,16px)}
+.precos-lista{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px}
+.preco{padding:22px;display:grid;gap:4px;align-content:start}
+.preco-nome{font-weight:700;font-size:14px;color:var(--suave);text-transform:uppercase;letter-spacing:.06em}
+.preco-valor{font-family:var(--titulo);font-size:clamp(32px,3.6vw,42px);line-height:1.15;color:var(--texto);font-weight:700}
+.preco-un{font-size:13px;color:var(--suave)}
+.preco-nota{margin-top:18px}
+.serv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}
+.servico{padding:24px;display:grid;gap:10px;align-content:start}
+.ic-servico{width:34px;height:34px;color:var(--marca-forte)}
+.servico p{color:var(--suave);font-size:15.5px}
+.pag-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:16px}
+.pag{padding:20px;display:flex;gap:14px;align-items:flex-start}
+.ic-pag{width:30px;height:30px;color:var(--marca-forte)}
+.pag h3{font-size:18px}
+.pag p{color:var(--suave);font-size:14.5px;margin-top:4px}
+.depo-lista{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
+.depo{padding:26px;display:grid;gap:14px;align-content:start}
+.depo-selo{justify-self:start;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:99px;background:color-mix(in srgb,var(--marca) 14%,transparent);color:var(--texto);border:1px dashed color-mix(in srgb,var(--texto) 35%,transparent)}
+.depo blockquote p{font-size:18px;line-height:1.5}
+.depo-autor{color:var(--suave);font-size:14px;font-weight:600}
+.local-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.horario{width:100%;margin:22px 0;font-size:16px}
+.horario th,.horario td{padding:12px 0;border-bottom:1px solid var(--linha);text-align:left;vertical-align:top}
+.horario th{font-weight:600;color:var(--suave);padding-right:16px}
+.horario td{font-weight:700;text-align:right}
+.endereco{display:flex;gap:10px;align-items:flex-start;margin-bottom:22px;font-weight:600}
+.endereco .ic{color:var(--marca-forte);margin-top:2px}
+.final-box{text-align:center;display:grid;justify-items:center;gap:6px}
+.final-box .acoes{justify-content:center;margin-top:22px}
+.final-box .sub{margin-inline:auto}
+.band-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.parc-wrap{margin-top:clamp(40px,6vw,64px)}
+.parc-wrap h3.parc-titulo{font-family:var(--corpo);font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--suave);margin-bottom:18px;font-weight:700}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}
+.cab-h{margin-bottom:0}
+.cab-h h2{margin-top:4px}
+
+/* ---------- Rodapé ---------- */
+.rodape{background:var(--fundo-2);padding:64px 0 96px;border-top:1px solid var(--linha);font-size:15px}
+.rod-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:32px}
+.rodape .logo{margin-right:0;color:var(--texto)}
+.rod-slogan{color:var(--suave);margin-top:12px;max-width:34ch}
+.rodape h2.rod-tit{font-family:var(--corpo);font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--suave);margin-bottom:14px;font-weight:700}
+.rod-lista{display:grid;gap:10px}
+.rod-lista li,.rod-lista a{display:flex;gap:10px;align-items:flex-start;text-decoration:none}
+.rod-lista a{min-height:28px}
+.rod-lista a:hover{color:var(--marca-forte)}
+.rod-lista .ic{width:20px;height:20px;color:var(--marca-forte);margin-top:2px}
+.aviso-modelo{font-size:13px;color:var(--suave);border-top:1px solid var(--linha);padding-top:18px;margin-top:28px;max-width:none}
+@media (max-width:860px){
+  .local-grid,.band-grid{grid-template-columns:1fr}
+  .rod-grid{grid-template-columns:1fr}
+}
+
+/* ---------- Reduzir movimento: tudo parado e visível ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
+}
+.calmo .rv,.calmo .selo,.calmo .totem,.calmo .parc-item{opacity:1!important;transform:none!important}
+.calmo .mq-faixa{width:auto;flex-wrap:wrap;justify-content:center}
+.calmo .mq-grupo[aria-hidden]{display:none}
+.calmo .mq-grupo{flex-wrap:wrap;justify-content:center;padding-right:0}
+.calmo .mq{-webkit-mask-image:none;mask-image:none}
+.calmo [data-barras] .barra i{transform:scaleX(var(--v,1))!important}
+
+/* ==========================================================================
+   ESTILO APPLE (Liquid Glass) — aba "Estilo Apple" do painel Personalizar
+   Cada bloco liga por um atributo no <html>: data-g-<bloco>="<opção>".
+   O vidro usa as cores da paleta (card, marca, texto), então acompanha a troca de cor.
+   ========================================================================== */
+:root{
+  --g-fill:color-mix(in srgb,var(--card) 60%,transparent);
+  --g-fill-claro:color-mix(in srgb,var(--sobre-foto) 10%,transparent);
+  --g-blur:saturate(180%) blur(20px);
+  --g-rim:inset 0 1px 0 rgba(255,255,255,.28),inset 0 0 0 1px color-mix(in srgb,var(--texto) 9%,transparent);
+  --g-sombra:0 14px 34px -12px rgba(0,0,0,.38);
+  --g-mola:cubic-bezier(.34,1.42,.64,1);
+  --g-fonte:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+  --g-redonda:ui-rounded,"SF Pro Rounded",var(--titulo)
+}
+@media (prefers-reduced-transparency:reduce){:root{--g-fill:var(--card);--g-fill-claro:color-mix(in srgb,var(--veu) 94%,transparent)}}
+
+/* ---------- Cabeçalho ---------- */
+html[data-g-topo="vidro"] .topo,html[data-g-topo="vidro"] .topo.rolou{background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);border-color:color-mix(in srgb,var(--texto) 10%,transparent)}
+html[data-g-topo="vidro"] .topo-sobre-foto .topo:not(.rolou):not(.aberto){background:var(--g-fill-claro);border-color:color-mix(in srgb,var(--sobre-foto) 16%,transparent)}
+html[data-g-topo="capsula"] .topo{background:none!important;border-color:transparent!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+html[data-g-topo="capsula"] .topo>.wrap{position:relative;isolation:isolate;width:min(1180px,100% - 20px);height:calc(var(--topo) - 16px);padding:0 7px 0 22px;border-radius:999px}
+html[data-g-topo="capsula"] .topo>.wrap::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);box-shadow:var(--g-rim),var(--g-sombra);transition:background-color .3s}
+html[data-g-topo="capsula"] .topo-sobre-foto .topo:not(.rolou):not(.aberto)>.wrap::before{background:var(--g-fill-claro)}
+html[data-g-topo="capsula"] .topo .btn{border-radius:999px}
+html[data-g-topo="capsula"] .menu a:not(.btn){border-radius:999px}
+@media (max-width:960px){
+  html[data-g-topo="capsula"] .menu{left:10px;right:10px;top:calc(var(--topo) - 2px);border:0;border-radius:26px;background:color-mix(in srgb,var(--fundo) 82%,transparent);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);box-shadow:var(--g-rim),var(--g-sombra)}
+  html[data-g-topo="capsula"] .menu a:not(.btn){border-radius:14px}
+}
+
+/* ---------- Botões ---------- */
+html[data-g-botoes="capsula"] .btn,html[data-g-botoes="vidro"] .btn{border-radius:999px;transition:transform .4s var(--g-mola),background-color .2s,border-color .2s,color .2s,box-shadow .2s}
+html[data-g-botoes="capsula"] .btn:hover,html[data-g-botoes="vidro"] .btn:hover{transform:translateY(-1px) scale(1.03)}
+html[data-g-botoes="capsula"] .btn:active,html[data-g-botoes="vidro"] .btn:active{transform:scale(.95);transition-duration:.12s}
+html[data-g-botoes="capsula"] .btn-prim{background-image:linear-gradient(180deg,rgba(255,255,255,.2),transparent 55%);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 10px 22px -10px color-mix(in srgb,var(--marca) 80%,transparent)}
+html[data-g-botoes="vidro"] .btn-prim{background-color:color-mix(in srgb,var(--marca) 84%,transparent);background-image:radial-gradient(120% 90% at 50% -20%,rgba(255,255,255,.38),transparent 60%);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);border-color:transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 0 0 1px rgba(255,255,255,.12),0 12px 26px -12px color-mix(in srgb,var(--marca) 85%,transparent)}
+html[data-g-botoes="vidro"] .btn-sec,html[data-g-botoes="vidro"] .btn-foto{background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);border-color:transparent;box-shadow:var(--g-rim),0 8px 20px -12px rgba(0,0,0,.35)}
+html[data-g-botoes="vidro"] .btn-foto{background:var(--g-fill-claro)}
+
+/* ---------- Texto do topo em painel de vidro ---------- */
+html[data-g-heroi="fosco"] .hero-txt,html[data-g-heroi="claro"] .hero-txt{padding:clamp(22px,3.2vw,40px);border-radius:34px;background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);box-shadow:var(--g-rim),var(--g-sombra)}
+html[data-g-heroi="claro"] .hero-txt{background:var(--g-fill-claro);-webkit-backdrop-filter:saturate(160%) blur(10px);backdrop-filter:saturate(160%) blur(10px)}
+html[data-g-heroi="fosco"] .hero-txt.wrap,html[data-g-heroi="claro"] .hero-txt.wrap{width:auto;max-width:min(820px,calc(100% - 32px));margin-inline:max(16px,calc((100% - 1200px) / 2)) auto}
+html[data-g-heroi="fosco"] .hero-txt.hero-centro,html[data-g-heroi="claro"] .hero-txt.hero-centro,
+html[data-g-heroi="fosco"] .hero-txt.hero10,html[data-g-heroi="claro"] .hero-txt.hero10{margin-inline:auto}
+html[data-g-heroi="fosco"] .m1 .hero h1,html[data-g-heroi="claro"] .m1 .hero h1{font-size:clamp(40px,6vw,80px);margin:14px 0 16px}
+html[data-g-heroi="fosco"] .m1 .lead,html[data-g-heroi="claro"] .m1 .lead{margin-bottom:24px}
+html[data-g-heroi="fosco"] .pix-badge,html[data-g-heroi="claro"] .pix-badge,html[data-g-heroi="fosco"] .chip9,html[data-g-heroi="claro"] .chip9{background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);border-color:transparent;box-shadow:var(--g-rim),var(--g-sombra)}
+
+/* ---------- Preços ---------- */
+html[data-g-precos="widget"] .secao:has(.precos-lista){background-image:radial-gradient(45% 60% at 10% 18%,color-mix(in srgb,var(--marca) 22%,transparent),transparent 70%),radial-gradient(45% 60% at 92% 88%,color-mix(in srgb,var(--destaque) 20%,transparent),transparent 70%)}
+html[data-g-precos="widget"] .precos-lista .preco{border-radius:28px;border-color:transparent;background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);box-shadow:var(--g-rim),var(--g-sombra);min-height:170px;padding:22px;align-content:space-between}
+html[data-g-precos="widget"] .precos-lista .preco::before{display:none}
+html[data-g-precos="widget"] .precos-lista .preco-nome{text-transform:none;letter-spacing:0;font-size:15px;font-weight:600;color:var(--suave)}
+html[data-g-precos="widget"] .precos-lista .preco-valor{font-family:var(--g-redonda);letter-spacing:-.03em}
+html[data-g-precos="lista"] .precos-lista{display:block;max-width:680px;background:var(--card);border:1px solid var(--linha);border-radius:24px;overflow:hidden;box-shadow:0 18px 40px -24px rgba(0,0,0,.4)}
+html[data-g-precos="lista"] .precos-lista .preco{display:grid;grid-template-columns:1fr auto;column-gap:16px;align-items:center;align-content:center;padding:15px 22px;border:0;border-radius:0;background:none;box-shadow:none;min-height:0}
+html[data-g-precos="lista"] .precos-lista .preco+.preco{border-top:1px solid var(--linha)}
+html[data-g-precos="lista"] .precos-lista .preco::before{display:none}
+html[data-g-precos="lista"] .precos-lista .preco-nome{grid-column:1;grid-row:1;text-transform:none;letter-spacing:0;font-size:17px;font-weight:600;color:var(--texto)}
+html[data-g-precos="lista"] .precos-lista .preco-un{grid-column:1;grid-row:2}
+html[data-g-precos="lista"] .precos-lista .preco-valor{grid-column:2;grid-row:1 / 3;font-size:clamp(26px,3vw,34px);font-family:var(--g-redonda);letter-spacing:-.02em}
+
+/* ---------- Cards, serviços e horário ---------- */
+html[data-g-cards="ios"] .card{border-radius:24px;border-color:transparent;box-shadow:0 1px 2px rgba(0,0,0,.06),0 16px 36px -20px rgba(0,0,0,.4)}
+html[data-g-cards="ios"] .card .ic-servico,html[data-g-cards="ios"] .card .ic-pag{width:46px;height:46px;padding:11px;border-radius:13px;background:var(--marca);color:var(--marca-texto)}
+html[data-g-cards="vidro"] .secao:not(.bandeira):not(.final):has(.card){background-image:radial-gradient(40% 55% at 8% 15%,color-mix(in srgb,var(--marca) 13%,transparent),transparent 70%),radial-gradient(40% 55% at 95% 85%,color-mix(in srgb,var(--destaque) 12%,transparent),transparent 70%)}
+html[data-g-cards="vidro"] .card{border-radius:max(var(--raio-card,16px),22px);border-color:transparent;background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);box-shadow:var(--g-rim),var(--g-sombra)}
+html[data-g-cards="ios"] .horario,html[data-g-cards="vidro"] .horario{border-collapse:separate;border-spacing:0;border-radius:20px;overflow:hidden;background:var(--card);box-shadow:0 14px 34px -22px rgba(0,0,0,.45)}
+html[data-g-cards="vidro"] .horario{background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);box-shadow:var(--g-rim),var(--g-sombra)}
+html[data-g-cards="ios"] .horario th,html[data-g-cards="vidro"] .horario th{padding-left:18px}
+html[data-g-cards="ios"] .horario td,html[data-g-cards="vidro"] .horario td{padding-right:18px}
+html[data-g-cards="ios"] .horario tr:last-child>*,html[data-g-cards="vidro"] .horario tr:last-child>*{border-bottom:0}
+
+/* ---------- Abas como controle segmentado ---------- */
+.g-polegar{display:none}
+html[data-g-abas="segmentado"] .abas-lista{position:relative;display:inline-flex;gap:0;padding:4px;border-radius:999px;background:color-mix(in srgb,var(--texto) 8%,transparent);max-width:100%}
+html[data-g-abas="segmentado"] .abas-lista .aba{position:relative;z-index:1;min-height:40px;padding:9px 20px;border-radius:999px;background:none;box-shadow:none;color:var(--suave);transition:color .3s}
+html[data-g-abas="segmentado"] .abas-lista .aba[aria-selected="true"]{background:none;box-shadow:none;color:var(--texto)}
+html[data-g-abas="segmentado"] .abas-lista .aba::after{display:none}
+html[data-g-abas="segmentado"] .g-polegar{display:block;position:absolute;z-index:0;top:4px;bottom:4px;left:4px;width:0;border-radius:999px;background:var(--card);box-shadow:0 3px 10px rgba(0,0,0,.14),0 0 0 .5px color-mix(in srgb,var(--texto) 10%,transparent);overflow:hidden;transition:left .5s var(--g-mola),width .5s var(--g-mola)}
+html[data-g-abas="segmentado"] .g-polegar::after{content:"";position:absolute;left:16px;right:16px;bottom:3px;height:2px;border-radius:2px;background:var(--marca);transform:scaleX(0);transform-origin:left}
+html[data-g-abas="segmentado"] .tocando .g-polegar::after{animation:encher calc(5s * var(--m-vel)) linear forwards}
+
+/* ---------- Botões flutuantes ---------- */
+html[data-g-flutuantes="vidro"] .whats-flutua{background:color-mix(in srgb,var(--marca) 82%,transparent);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),var(--g-sombra);transition:transform .4s var(--g-mola)}
+html[data-g-flutuantes="vidro"] .pz-botao,html[data-g-flutuantes="barra"] .pz-botao{background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);border-color:transparent;box-shadow:var(--g-rim),var(--g-sombra)}
+.g-barra{display:none}
+html[data-g-flutuantes="barra"] .whats-flutua{display:none}
+html[data-g-flutuantes="barra"] .pz-botao{bottom:98px}
+html[data-g-flutuantes="barra"] .g-barra{display:flex;position:fixed;z-index:57;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);gap:2px;padding:5px;max-width:calc(100vw - 20px);border-radius:999px;background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);box-shadow:var(--g-rim),0 18px 40px -12px rgba(0,0,0,.5);animation:gBarra .7s var(--g-mola) both}
+.g-barra a{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:66px;min-height:52px;padding:7px 10px 6px;border-radius:999px;text-decoration:none;font:600 11px/1 var(--corpo);color:var(--texto);white-space:nowrap;transition:color .3s,transform .35s var(--g-mola)}
+.g-barra a:active{transform:scale(.92)}
+.g-barra a .ic{width:22px;height:22px}
+.g-barra a.ativo{color:var(--marca-forte)}
+.g-barra a.g-whats{background:var(--marca);color:var(--marca-texto);box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+.g-pilula{position:absolute;z-index:0;top:5px;bottom:5px;left:5px;width:0;border-radius:999px;background:color-mix(in srgb,var(--texto) 10%,transparent);opacity:0;transition:left .5s var(--g-mola),width .5s var(--g-mola),opacity .3s}
+.g-pilula.on{opacity:1}
+@keyframes gBarra{from{opacity:0;transform:translate(-50%,40px) scale(.9)}}
+@media (max-width:400px){.g-barra a{min-width:58px;padding-inline:6px;font-size:10px}}
+
+/* ---------- Aviso (notificação de preço) ---------- */
+.g-aviso{position:fixed;z-index:90;top:calc(var(--topo) + 10px);left:50%;width:min(390px,calc(100vw - 24px));transform:translateX(-50%);display:flex;gap:12px;align-items:flex-start;padding:13px 14px;border-radius:24px;background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);box-shadow:var(--g-rim),0 20px 44px -12px rgba(0,0,0,.45);color:var(--texto);text-decoration:none;font-family:var(--corpo);cursor:pointer;animation:gCair .65s var(--g-mola) both}
+.g-aviso.sair{animation:gSubir .35s ease-in both}
+.g-aviso-ic{flex:none;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--marca);color:var(--marca-texto)}
+.g-aviso-ic .ic{width:22px;height:22px}
+.g-aviso-txt{flex:1;min-width:0}
+.g-aviso-app{display:flex;justify-content:space-between;gap:8px;font-size:12px;font-weight:600;color:var(--suave);text-transform:uppercase;letter-spacing:.04em}
+.g-aviso-txt b{display:block;font-size:15.5px;line-height:1.3;margin-top:2px}
+.g-aviso-txt p{font-size:14px;line-height:1.35;margin:0;color:var(--suave)}
+.g-aviso-x{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--texto) 9%,transparent);color:var(--suave)}
+.g-aviso-x .ic{width:14px;height:14px}
+@keyframes gCair{from{opacity:0;transform:translate(-50%,-140%) scale(.92)}}
+@keyframes gSubir{to{opacity:0;transform:translate(-50%,-120%) scale(.95)}}
+
+/* ---------- Fonte do sistema Apple ---------- */
+html[data-g-fonte="sf"]{--titulo:var(--g-fonte);--corpo:var(--g-fonte)}
+html[data-g-fonte="sf"] h1,html[data-g-fonte="sf"] h2{letter-spacing:-.03em}
+
+/* ---------- Painel: aba Estilo Apple ---------- */
+.pz-presets{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pz-preset{min-height:56px;padding:8px 12px;border-radius:14px;border:1.5px solid var(--linha);text-align:left;display:grid;gap:2px;font-weight:700;font-size:13.5px;line-height:1.2}
+.pz-preset small{font-weight:500;font-size:12px;color:var(--suave)}
+.pz-preset:hover{background:color-mix(in srgb,var(--texto) 6%,transparent)}
+.pz-preset.sugestao{border-color:var(--marca);background:color-mix(in srgb,var(--marca) 10%,transparent)}
+.pz-dica{font-size:12.5px;color:var(--suave);margin-top:-2px}
+
+.ind-topo{padding:clamp(56px,9vw,96px) 0 32px}
+.ind-topo h1{font-size:clamp(34px,6vw,60px);letter-spacing:-.03em;max-width:16ch}
+.modelos{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:24px;padding-bottom:96px}
+.modelo{background:var(--card);border:1px solid var(--linha);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.modelo .foto{border-radius:0;border-width:0 0 1.5px}
+.modelo-txt{padding:22px;display:grid;gap:12px;flex:1;align-content:start}
+.modelo-num{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--marca-forte)}
+.modelo h2{font-size:26px}
+.modelo-txt>p:not(.modelo-num){color:var(--suave);font-size:15px}
+.bolas{display:flex;gap:8px;flex-wrap:wrap}
+.bola{width:44px;height:44px;border-radius:50%;border:2px solid var(--linha)}
+.bola[aria-pressed="true"]{border-color:var(--texto);box-shadow:0 0 0 2px var(--card),0 0 0 4px var(--marca-forte)!important}
+.modelo-txt .acoes{margin-top:4px}
+</style>
+<script>document.documentElement.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('calmo');</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.8l1.4-2h6.6l1.4 2h1.8A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.6"/></symbol><symbol id="i-selo" viewBox="0 0 24 24"><circle cx="12" cy="9.5" r="6"/><path d="M8.6 14.6 7 22l5-3 5 3-1.6-7.4"/><path d="M9.5 9.5l1.8 1.8 3.2-3.4"/></symbol><symbol id="i-paleta" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-1 2-2 0-1.4-1.2-1.8-1.2-3 0-1 .8-1.8 1.8-1.8H17a4 4 0 0 0 4-4C21 6.4 17 3 12 3z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="14.5" cy="7" r="1"/></symbol><symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol><symbol id="i-whats" viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z"/><path d="M9.2 8.6c.2 2.6 2.4 4.9 5 5.2l1.1-1.2 1.8.9-.4 1.6c-3.8.3-7.4-3.2-7.1-7.1l1.6-.4.8 1.8z"/></symbol><symbol id="i-bomba" viewBox="0 0 24 24"><path d="M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h12M6.5 7h5v4h-5z"/><path d="M14 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-3-3"/></symbol><symbol id="i-loja" viewBox="0 0 24 24"><path d="M4 9.5V20h16V9.5M3 4h18l-1 5.5H4z"/><path d="M9 20v-5h6v5"/></symbol><symbol id="i-oleo" viewBox="0 0 24 24"><path d="M12 3s5 5.6 5 9.5a5 5 0 0 1-10 0C7 8.6 12 3 12 3z"/><path d="M10 13.5a2 2 0 0 0 2 2"/></symbol><symbol id="i-lavagem" viewBox="0 0 24 24"><path d="M5 17h14M4 17v-3.5l2-4.5h12l2 4.5V17M4 17v2h3v-2M17 17v2h3v-2"/><circle cx="7.5" cy="14" r=".8"/><circle cx="16.5" cy="14" r=".8"/><path d="M9 2.5s-1.2 1.5-1.2 2.3a1.2 1.2 0 0 0 2.4 0C10.2 4 9 2.5 9 2.5zM15 2.5s-1.2 1.5-1.2 2.3a1.2 1.2 0 0 0 2.4 0c0-.8-1.2-2.3-1.2-2.3z"/></symbol><symbol id="i-calibragem" viewBox="0 0 24 24"><path d="M4.5 17a8.5 8.5 0 1 1 15 0"/><path d="M12 13l4-4"/><circle cx="12" cy="13" r="1.3"/></symbol><symbol id="i-ducha" viewBox="0 0 24 24"><path d="M4 20V7a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3"/><path d="M8.5 9h6l-1-2h-4z"/><path d="M10 12v1.5M12.5 12v2.5M15 12v1.5M11 16v1.5M14 16v1.5"/></symbol><symbol id="i-arla" viewBox="0 0 24 24"><path d="M9 3h6v3l2 2v12a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8l2-2z"/><path d="M9.5 17l2.5-6.5 2.5 6.5M10.3 15h3.4"/></symbol><symbol id="i-banheiro" viewBox="0 0 24 24"><circle cx="7" cy="4.5" r="1.5"/><circle cx="17" cy="4.5" r="1.5"/><path d="M5 21v-6H4l1.2-6.5h3.6L10 15H9v6M15 21v-7h-1V9.5A1.5 1.5 0 0 1 15.5 8h3A1.5 1.5 0 0 1 20 9.5V14h-1v7M12 3v18"/></symbol><symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r=".9"/></symbol><symbol id="i-estacionamento" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M9.5 17V7h3.5a3 3 0 0 1 0 6H9.5"/></symbol><symbol id="i-cafe" viewBox="0 0 24 24"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 10.5h1.5a2.5 2.5 0 0 1 0 5H17M8 3.5c-.6.8-.6 1.7 0 2.5M12 3.5c-.6.8-.6 1.7 0 2.5M3 21h15"/></symbol><symbol id="i-pix" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/><path d="M14 14h2.5v2.5H14zM18 18h2.5v2.5H18zM18 14h2.5M14 18v2.5"/></symbol><symbol id="i-cartao" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></symbol><symbol id="i-aproximacao" viewBox="0 0 24 24"><path d="M7 8.5a5 5 0 0 1 0 7M10.5 6a9 9 0 0 1 0 12M14 3.5a12.5 12.5 0 0 1 0 17"/></symbol><symbol id="i-dinheiro" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.8"/><path d="M6 9.5v5M18 9.5v5"/></symbol><symbol id="i-caminhao" viewBox="0 0 24 24"><path d="M2.5 6h11v10h-11zM13.5 9.5h4l3 3.5V16h-7"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol><symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol><symbol id="i-telefone" viewBox="0 0 24 24"><path d="M5 4h3.5l1.5 4.5-2 1.5a11 11 0 0 0 6 6l1.5-2 4.5 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol><symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".8"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-restaurante" viewBox="0 0 24 24"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M16 3c-2 0-3 2.5-3 6h3M16 3v18"/></symbol><symbol id="i-pneu" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v5M12 16v5M3 12h5M16 12h5"/></symbol><symbol id="i-bateria" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5h3v2M14 7V5h3v2M7 13h3M15.5 11.5v3M14 13h3"/></symbol><symbol id="i-alinhamento" viewBox="0 0 24 24"><path d="M12 3v18"/><rect x="4" y="5" width="5" height="6" rx="1"/><rect x="15" y="5" width="5" height="6" rx="1"/><rect x="4" y="13" width="5" height="6" rx="1"/><rect x="15" y="13" width="5" height="6" rx="1"/></symbol><symbol id="i-chave" viewBox="0 0 24 24"><path d="M15 4a5 5 0 0 0-4.6 6.9L3.5 17.8a1.9 1.9 0 0 0 2.7 2.7l6.9-6.9A5 5 0 0 0 20 9l-3 1-2-2 1-3z"/></symbol><symbol id="i-app" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></symbol><symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-cama" viewBox="0 0 24 24"><path d="M3 18V6M3 13h18v5M21 13a3 3 0 0 0-3-3h-7v3"/><circle cx="7" cy="10" r="1.8"/></symbol><symbol id="i-pao" viewBox="0 0 24 24"><path d="M4 11a4 4 0 0 1 2-7h12a4 4 0 0 1 2 7v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M9 8v3M12 8v3M15 8v3"/></symbol><symbol id="i-coracao" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></symbol><symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.5v-8a1 1 0 0 1 1-1h8l8 8-9 9z"/><circle cx="8" cy="8" r="1.4"/></symbol><symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol><symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol><symbol id="i-pessoas" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></symbol><symbol id="i-gota" viewBox="0 0 24 24"><path d="M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11z"/></symbol><symbol id="i-estrada" viewBox="0 0 24 24"><path d="M8 3 4 21M16 3l4 18M12 4v2.5M12 10v3M12 17v3"/></symbol></svg>
+<main class="wrap">
+  <header class="ind-topo">
+    <p class="rotulo">Modelos de demonstração</p>
+    <h1>Cinco sites para posto de combustível</h1>
+    <p class="sub">Cada modelo tem o botão <b>Personalizar</b> no canto inferior esquerdo, para trocar as cores, as animações e o <b>Estilo Apple</b> (vidro, cápsulas e widgets do iPhone) na hora. Clique numa bolinha para abrir o modelo já com aquela paleta.</p>
+  </header>
+  <ul class="modelos"><li class="modelo rv" style="--i:0">
+  <figure class="foto" data-foto="hero.jpg" data-base="posto 1/img/" data-proporcao="16/10" data-desc="Foto principal do modelo 1" data-tamanho="1920 x 1080" style="aspect-ratio:16/10"><img alt="Prévia do modelo Posto Estrada Real" loading="lazy"></figure>
+  <div class="modelo-txt">
+    <p class="modelo-num">Modelo 1 · Rodovia</p>
+    <h2>Posto Estrada Real</h2>
+    <p>Posto de rodovia aberto 24 horas, com diesel S10, Arla 32, pátio para carretas, banho e restaurante.</p>
+    <div class="bolas" role="group" aria-label="Paletas do modelo 1"><button type="button" class="bola" data-pal="padrao" aria-pressed="true" aria-label="Abrir com a paleta Grafite e âmbar" title="Grafite e âmbar" style="background:linear-gradient(135deg,#111317 0 38%,#FF6B2C 38% 66%,#F5A524 66% 100%)"></button><button type="button" class="bola" data-pal="vermelho" aria-pressed="false" aria-label="Abrir com a paleta Vermelho e grafite" title="Vermelho e grafite" style="background:linear-gradient(135deg,#111317 0 38%,#F5A524 38% 66%,#D7263D 66% 100%)"></button><button type="button" class="bola" data-pal="azul" aria-pressed="false" aria-label="Abrir com a paleta Azul e amarelo" title="Azul e amarelo" style="background:linear-gradient(135deg,#111317 0 38%,#F5C518 38% 66%,#3D8BFD 66% 100%)"></button><button type="button" class="bola" data-pal="verde" aria-pressed="false" aria-label="Abrir com a paleta Verde e grafite" title="Verde e grafite" style="background:linear-gradient(135deg,#111317 0 38%,#C8E64A 38% 66%,#22B55F 66% 100%)"></button><button type="button" class="bola" data-pal="laranja" aria-pressed="false" aria-label="Abrir com a paleta Laranja e grafite" title="Laranja e grafite" style="background:linear-gradient(135deg,#111317 0 38%,#FFD166 38% 66%,#FF7A1A 66% 100%)"></button><button type="button" class="bola" data-pal="petroleo" aria-pressed="false" aria-label="Abrir com a paleta Petróleo, areia e laranja vibrante" title="Petróleo, areia e laranja vibrante" style="background:linear-gradient(135deg,#0F1E24 0 38%,#C9B79C 38% 66%,#FF6A13 66% 100%)"></button><button type="button" class="bola" data-pal="marinho" aria-pressed="false" aria-label="Abrir com a paleta Marinho, aço e amarelo neon" title="Marinho, aço e amarelo neon" style="background:linear-gradient(135deg,#0E1628 0 38%,#8FA3B8 38% 66%,#FFD60A 66% 100%)"></button><button type="button" class="bola" data-pal="oliva" aria-pressed="false" aria-label="Abrir com a paleta Grafite, oliva e verde-limão" title="Grafite, oliva e verde-limão" style="background:linear-gradient(135deg,#15171A 0 38%,#8A9A5B 38% 66%,#A3E635 66% 100%)"></button><button type="button" class="bola" data-pal="vinho" aria-pressed="false" aria-label="Abrir com a paleta Vinho, rosé e vermelho vibrante" title="Vinho, rosé e vermelho vibrante" style="background:linear-gradient(135deg,#1E1215 0 38%,#B8A0A4 38% 66%,#FF2E4D 66% 100%)"></button><button type="button" class="bola" data-pal="cobre" aria-pressed="false" aria-label="Abrir com a paleta Carvão, cobre e ciano elétrico" title="Carvão, cobre e ciano elétrico" style="background:linear-gradient(135deg,#121417 0 38%,#C07A3E 38% 66%,#00E5FF 66% 100%)"></button></div>
+    <div class="acoes"><a class="btn btn-prim abrir" href="posto%201/index.html" data-href="posto%201/index.html">Abrir modelo</a>
+      <a class="btn btn-sec abrir-apple" href="posto%201/index.html?g=sugestao" data-href="posto%201/index.html">Ver com estilo Apple</a></div>
+  </div>
+</li><li class="modelo rv" style="--i:1">
+  <figure class="foto" data-foto="hero.jpg" data-base="posto 2/img/" data-proporcao="16/10" data-desc="Foto principal do modelo 2" data-tamanho="1920 x 1080" style="aspect-ratio:16/10"><img alt="Prévia do modelo Posto Avenida" loading="lazy"></figure>
+  <div class="modelo-txt">
+    <p class="modelo-num">Modelo 2 · Urbano premium</p>
+    <h2>Posto Avenida</h2>
+    <p>Posto urbano com gasolina aditivada, loja de conveniência, café, Pix e pagamento por aproximação.</p>
+    <div class="bolas" role="group" aria-label="Paletas do modelo 2"><button type="button" class="bola" data-pal="padrao" aria-pressed="true" aria-label="Abrir com a paleta Branco e azul-petróleo" title="Branco e azul-petróleo" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#2DD4BF 38% 66%,#0E6B78 66% 100%)"></button><button type="button" class="bola" data-pal="vermelho" aria-pressed="false" aria-label="Abrir com a paleta Vermelho e branco" title="Vermelho e branco" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#FF8A80 38% 66%,#C8102E 66% 100%)"></button><button type="button" class="bola" data-pal="azul" aria-pressed="false" aria-label="Abrir com a paleta Azul e amarelo" title="Azul e amarelo" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#FACC15 38% 66%,#1D4ED8 66% 100%)"></button><button type="button" class="bola" data-pal="verde" aria-pressed="false" aria-label="Abrir com a paleta Verde e branco" title="Verde e branco" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#86EFAC 38% 66%,#15803D 66% 100%)"></button><button type="button" class="bola" data-pal="laranja" aria-pressed="false" aria-label="Abrir com a paleta Laranja e branco" title="Laranja e branco" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#FDBA74 38% 66%,#C2410C 66% 100%)"></button></div>
+    <div class="acoes"><a class="btn btn-prim abrir" href="posto%202/index.html" data-href="posto%202/index.html">Abrir modelo</a>
+      <a class="btn btn-sec abrir-apple" href="posto%202/index.html?g=sugestao" data-href="posto%202/index.html">Ver com estilo Apple</a></div>
+  </div>
+</li><li class="modelo rv" style="--i:2">
+  <figure class="foto" data-foto="hero.jpg" data-base="posto 3/img/" data-proporcao="16/10" data-desc="Foto principal do modelo 3" data-tamanho="1920 x 1080" style="aspect-ratio:16/10"><img alt="Prévia do modelo Auto Posto Bom Jesus" loading="lazy"></figure>
+  <div class="modelo-txt">
+    <p class="modelo-num">Modelo 3 · Família, cidade pequena</p>
+    <h2>Auto Posto Bom Jesus</h2>
+    <p>Posto de família na cidade, com atendimento pelo nome, lavagem, calibragem e lanchonete.</p>
+    <div class="bolas" role="group" aria-label="Paletas do modelo 3"><button type="button" class="bola" data-pal="padrao" aria-pressed="true" aria-label="Abrir com a paleta Creme, verde e laranja" title="Creme, verde e laranja" style="background:linear-gradient(135deg,#FBF6EC 0 38%,#E8833A 38% 66%,#2F6B3F 66% 100%)"></button><button type="button" class="bola" data-pal="vermelho" aria-pressed="false" aria-label="Abrir com a paleta Vermelho e creme" title="Vermelho e creme" style="background:linear-gradient(135deg,#FBF6EC 0 38%,#E8A33A 38% 66%,#A4262C 66% 100%)"></button><button type="button" class="bola" data-pal="azul" aria-pressed="false" aria-label="Abrir com a paleta Azul e creme" title="Azul e creme" style="background:linear-gradient(135deg,#FBF6EC 0 38%,#E8B43A 38% 66%,#1F4E8C 66% 100%)"></button><button type="button" class="bola" data-pal="verde" aria-pressed="false" aria-label="Abrir com a paleta Verde-oliva e mostarda" title="Verde-oliva e mostarda" style="background:linear-gradient(135deg,#FBF6EC 0 38%,#D9A21B 38% 66%,#55652A 66% 100%)"></button><button type="button" class="bola" data-pal="laranja" aria-pressed="false" aria-label="Abrir com a paleta Terracota e creme" title="Terracota e creme" style="background:linear-gradient(135deg,#FBF6EC 0 38%,#6B8F4E 38% 66%,#A84B24 66% 100%)"></button></div>
+    <div class="acoes"><a class="btn btn-prim abrir" href="posto%203/index.html" data-href="posto%203/index.html">Abrir modelo</a>
+      <a class="btn btn-sec abrir-apple" href="posto%203/index.html?g=sugestao" data-href="posto%203/index.html">Ver com estilo Apple</a></div>
+  </div>
+</li><li class="modelo rv" style="--i:3">
+  <figure class="foto" data-foto="hero.jpg" data-base="posto 4/img/" data-proporcao="16/10" data-desc="Foto principal do modelo 4" data-tamanho="1920 x 1080" style="aspect-ratio:16/10"><img alt="Prévia do modelo Posto Preço Justo" loading="lazy"></figure>
+  <div class="modelo-txt">
+    <p class="modelo-num">Modelo 4 · Econômico</p>
+    <h2>Posto Preço Justo</h2>
+    <p>Posto bandeira branca com tabela de preços sempre à vista, Pix, cartão e horário estendido.</p>
+    <div class="bolas" role="group" aria-label="Paletas do modelo 4"><button type="button" class="bola" data-pal="padrao" aria-pressed="true" aria-label="Abrir com a paleta Vermelho, preto e branco" title="Vermelho, preto e branco" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#111111 38% 66%,#D90429 66% 100%)"></button><button type="button" class="bola" data-pal="azul" aria-pressed="false" aria-label="Abrir com a paleta Azul e amarelo" title="Azul e amarelo" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#FFC300 38% 66%,#0050C8 66% 100%)"></button><button type="button" class="bola" data-pal="verde" aria-pressed="false" aria-label="Abrir com a paleta Verde e amarelo" title="Verde e amarelo" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#FFD000 38% 66%,#0A7F38 66% 100%)"></button><button type="button" class="bola" data-pal="laranja" aria-pressed="false" aria-label="Abrir com a paleta Laranja e preto" title="Laranja e preto" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#111111 38% 66%,#E85D04 66% 100%)"></button><button type="button" class="bola" data-pal="amarelo" aria-pressed="false" aria-label="Abrir com a paleta Preto e amarelo" title="Preto e amarelo" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#FFC300 38% 66%,#161616 66% 100%)"></button></div>
+    <div class="acoes"><a class="btn btn-prim abrir" href="posto%204/index.html" data-href="posto%204/index.html">Abrir modelo</a>
+      <a class="btn btn-sec abrir-apple" href="posto%204/index.html?g=sugestao" data-href="posto%204/index.html">Ver com estilo Apple</a></div>
+  </div>
+</li><li class="modelo rv" style="--i:4">
+  <figure class="foto" data-foto="hero.jpg" data-base="posto 5/img/" data-proporcao="16/10" data-desc="Foto principal do modelo 5" data-tamanho="1920 x 1080" style="aspect-ratio:16/10"><img alt="Prévia do modelo Posto &amp; Autocenter Central" loading="lazy"></figure>
+  <div class="modelo-txt">
+    <p class="modelo-num">Modelo 5 · Autocenter</p>
+    <h2>Posto &amp; Autocenter Central</h2>
+    <p>Posto com autocenter: troca de óleo, pneus, alinhamento, balanceamento, bateria e lavagem, com agendamento pelo WhatsApp.</p>
+    <div class="bolas" role="group" aria-label="Paletas do modelo 5"><button type="button" class="bola" data-pal="padrao" aria-pressed="true" aria-label="Abrir com a paleta Azul-marinho e laranja" title="Azul-marinho e laranja" style="background:linear-gradient(135deg,#0D1626 0 38%,#3B82F6 38% 66%,#FF7A1A 66% 100%)"></button><button type="button" class="bola" data-pal="vermelho" aria-pressed="false" aria-label="Abrir com a paleta Vermelho e marinho" title="Vermelho e marinho" style="background:linear-gradient(135deg,#0D1626 0 38%,#FACC15 38% 66%,#F0484A 66% 100%)"></button><button type="button" class="bola" data-pal="verde" aria-pressed="false" aria-label="Abrir com a paleta Verde e marinho" title="Verde e marinho" style="background:linear-gradient(135deg,#0D1626 0 38%,#38BDF8 38% 66%,#22C55E 66% 100%)"></button><button type="button" class="bola" data-pal="amarelo" aria-pressed="false" aria-label="Abrir com a paleta Amarelo e marinho" title="Amarelo e marinho" style="background:linear-gradient(135deg,#0D1626 0 38%,#FF7A1A 38% 66%,#FACC15 66% 100%)"></button><button type="button" class="bola" data-pal="claro" aria-pressed="false" aria-label="Abrir com a paleta Laranja e branco" title="Laranja e branco" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#1D4ED8 38% 66%,#C2410C 66% 100%)"></button></div>
+    <div class="acoes"><a class="btn btn-prim abrir" href="posto%205/index.html" data-href="posto%205/index.html">Abrir modelo</a>
+      <a class="btn btn-sec abrir-apple" href="posto%205/index.html?g=sugestao" data-href="posto%205/index.html">Ver com estilo Apple</a></div>
+  </div>
+</li><li class="modelo rv" style="--i:5">
+  <figure class="foto" data-foto="hero.jpg" data-base="posto 6/img/" data-proporcao="16/10" data-desc="Foto principal do modelo 6" data-tamanho="1920 x 1080" style="aspect-ratio:16/10"><img alt="Prévia do modelo Posto Serra Azul" loading="lazy"></figure>
+  <div class="modelo-txt">
+    <p class="modelo-num">Modelo 6 · Rodovia de serra (variação do 1)</p>
+    <h2>Posto Serra Azul</h2>
+    <p>Posto de rodovia no pé da serra, com diesel S10, Arla 32, café da manhã, pátio e banho.</p>
+    <div class="bolas" role="group" aria-label="Paletas do modelo 6"><button type="button" class="bola" data-pal="padrao" aria-pressed="false" aria-label="Abrir com a paleta Grafite e âmbar" title="Grafite e âmbar" style="background:linear-gradient(135deg,#111317 0 38%,#FF6B2C 38% 66%,#F5A524 66% 100%)"></button><button type="button" class="bola" data-pal="vermelho" aria-pressed="false" aria-label="Abrir com a paleta Vermelho e grafite" title="Vermelho e grafite" style="background:linear-gradient(135deg,#111317 0 38%,#F5A524 38% 66%,#D7263D 66% 100%)"></button><button type="button" class="bola" data-pal="azul" aria-pressed="false" aria-label="Abrir com a paleta Azul e amarelo" title="Azul e amarelo" style="background:linear-gradient(135deg,#111317 0 38%,#F5C518 38% 66%,#3D8BFD 66% 100%)"></button><button type="button" class="bola" data-pal="verde" aria-pressed="false" aria-label="Abrir com a paleta Verde e grafite" title="Verde e grafite" style="background:linear-gradient(135deg,#111317 0 38%,#C8E64A 38% 66%,#22B55F 66% 100%)"></button><button type="button" class="bola" data-pal="laranja" aria-pressed="false" aria-label="Abrir com a paleta Laranja e grafite" title="Laranja e grafite" style="background:linear-gradient(135deg,#111317 0 38%,#FFD166 38% 66%,#FF7A1A 66% 100%)"></button><button type="button" class="bola" data-pal="petroleo" aria-pressed="true" aria-label="Abrir com a paleta Petróleo, areia e laranja vibrante" title="Petróleo, areia e laranja vibrante" style="background:linear-gradient(135deg,#0F1E24 0 38%,#C9B79C 38% 66%,#FF6A13 66% 100%)"></button><button type="button" class="bola" data-pal="marinho" aria-pressed="false" aria-label="Abrir com a paleta Marinho, aço e amarelo neon" title="Marinho, aço e amarelo neon" style="background:linear-gradient(135deg,#0E1628 0 38%,#8FA3B8 38% 66%,#FFD60A 66% 100%)"></button><button type="button" class="bola" data-pal="oliva" aria-pressed="false" aria-label="Abrir com a paleta Grafite, oliva e verde-limão" title="Grafite, oliva e verde-limão" style="background:linear-gradient(135deg,#15171A 0 38%,#8A9A5B 38% 66%,#A3E635 66% 100%)"></button><button type="button" class="bola" data-pal="vinho" aria-pressed="false" aria-label="Abrir com a paleta Vinho, rosé e vermelho vibrante" title="Vinho, rosé e vermelho vibrante" style="background:linear-gradient(135deg,#1E1215 0 38%,#B8A0A4 38% 66%,#FF2E4D 66% 100%)"></button><button type="button" class="bola" data-pal="cobre" aria-pressed="false" aria-label="Abrir com a paleta Carvão, cobre e ciano elétrico" title="Carvão, cobre e ciano elétrico" style="background:linear-gradient(135deg,#121417 0 38%,#C07A3E 38% 66%,#00E5FF 66% 100%)"></button></div>
+    <div class="acoes"><a class="btn btn-prim abrir" href="posto%206/index.html" data-href="posto%206/index.html">Abrir modelo</a>
+      <a class="btn btn-sec abrir-apple" href="posto%206/index.html?g=sugestao" data-href="posto%206/index.html">Ver com estilo Apple</a></div>
+  </div>
+</li><li class="modelo rv" style="--i:6">
+  <figure class="foto" data-foto="hero.jpg" data-base="posto 7/img/" data-proporcao="16/10" data-desc="Foto principal do modelo 7" data-tamanho="1920 x 1080" style="aspect-ratio:16/10"><img alt="Prévia do modelo Posto Rota Sul" loading="lazy"></figure>
+  <div class="modelo-txt">
+    <p class="modelo-num">Modelo 7 · Rodovia à noite (variação do 1)</p>
+    <h2>Posto Rota Sul</h2>
+    <p>Posto de rodovia aberto 24 horas, com pista iluminada, diesel S10, banho, restaurante e pátio vigiado.</p>
+    <div class="bolas" role="group" aria-label="Paletas do modelo 7"><button type="button" class="bola" data-pal="padrao" aria-pressed="false" aria-label="Abrir com a paleta Grafite e âmbar" title="Grafite e âmbar" style="background:linear-gradient(135deg,#111317 0 38%,#FF6B2C 38% 66%,#F5A524 66% 100%)"></button><button type="button" class="bola" data-pal="vermelho" aria-pressed="false" aria-label="Abrir com a paleta Vermelho e grafite" title="Vermelho e grafite" style="background:linear-gradient(135deg,#111317 0 38%,#F5A524 38% 66%,#D7263D 66% 100%)"></button><button type="button" class="bola" data-pal="azul" aria-pressed="false" aria-label="Abrir com a paleta Azul e amarelo" title="Azul e amarelo" style="background:linear-gradient(135deg,#111317 0 38%,#F5C518 38% 66%,#3D8BFD 66% 100%)"></button><button type="button" class="bola" data-pal="verde" aria-pressed="false" aria-label="Abrir com a paleta Verde e grafite" title="Verde e grafite" style="background:linear-gradient(135deg,#111317 0 38%,#C8E64A 38% 66%,#22B55F 66% 100%)"></button><button type="button" class="bola" data-pal="laranja" aria-pressed="false" aria-label="Abrir com a paleta Laranja e grafite" title="Laranja e grafite" style="background:linear-gradient(135deg,#111317 0 38%,#FFD166 38% 66%,#FF7A1A 66% 100%)"></button><button type="button" class="bola" data-pal="petroleo" aria-pressed="false" aria-label="Abrir com a paleta Petróleo, areia e laranja vibrante" title="Petróleo, areia e laranja vibrante" style="background:linear-gradient(135deg,#0F1E24 0 38%,#C9B79C 38% 66%,#FF6A13 66% 100%)"></button><button type="button" class="bola" data-pal="marinho" aria-pressed="true" aria-label="Abrir com a paleta Marinho, aço e amarelo neon" title="Marinho, aço e amarelo neon" style="background:linear-gradient(135deg,#0E1628 0 38%,#8FA3B8 38% 66%,#FFD60A 66% 100%)"></button><button type="button" class="bola" data-pal="oliva" aria-pressed="false" aria-label="Abrir com a paleta Grafite, oliva e verde-limão" title="Grafite, oliva e verde-limão" style="background:linear-gradient(135deg,#15171A 0 38%,#8A9A5B 38% 66%,#A3E635 66% 100%)"></button><button type="button" class="bola" data-pal="vinho" aria-pressed="false" aria-label="Abrir com a paleta Vinho, rosé e vermelho vibrante" title="Vinho, rosé e vermelho vibrante" style="background:linear-gradient(135deg,#1E1215 0 38%,#B8A0A4 38% 66%,#FF2E4D 66% 100%)"></button><button type="button" class="bola" data-pal="cobre" aria-pressed="false" aria-label="Abrir com a paleta Carvão, cobre e ciano elétrico" title="Carvão, cobre e ciano elétrico" style="background:linear-gradient(135deg,#121417 0 38%,#C07A3E 38% 66%,#00E5FF 66% 100%)"></button></div>
+    <div class="acoes"><a class="btn btn-prim abrir" href="posto%207/index.html" data-href="posto%207/index.html">Abrir modelo</a>
+      <a class="btn btn-sec abrir-apple" href="posto%207/index.html?g=sugestao" data-href="posto%207/index.html">Ver com estilo Apple</a></div>
+  </div>
+</li><li class="modelo rv" style="--i:7">
+  <figure class="foto" data-foto="hero.jpg" data-base="posto 8/img/" data-proporcao="16/10" data-desc="Foto principal do modelo 8" data-tamanho="1920 x 1080" style="aspect-ratio:16/10"><img alt="Prévia do modelo Posto Parada Certa" loading="lazy"></figure>
+  <div class="modelo-txt">
+    <p class="modelo-num">Modelo 8 · Parada de viagem (variação do 1)</p>
+    <h2>Posto Parada Certa</h2>
+    <p>Posto de estrada para quem viaja de carro: banheiro limpo, café, lanches, calibragem e espaço para esticar as pernas.</p>
+    <div class="bolas" role="group" aria-label="Paletas do modelo 8"><button type="button" class="bola" data-pal="padrao" aria-pressed="false" aria-label="Abrir com a paleta Grafite e âmbar" title="Grafite e âmbar" style="background:linear-gradient(135deg,#111317 0 38%,#FF6B2C 38% 66%,#F5A524 66% 100%)"></button><button type="button" class="bola" data-pal="vermelho" aria-pressed="false" aria-label="Abrir com a paleta Vermelho e grafite" title="Vermelho e grafite" style="background:linear-gradient(135deg,#111317 0 38%,#F5A524 38% 66%,#D7263D 66% 100%)"></button><button type="button" class="bola" data-pal="azul" aria-pressed="false" aria-label="Abrir com a paleta Azul e amarelo" title="Azul e amarelo" style="background:linear-gradient(135deg,#111317 0 38%,#F5C518 38% 66%,#3D8BFD 66% 100%)"></button><button type="button" class="bola" data-pal="verde" aria-pressed="false" aria-label="Abrir com a paleta Verde e grafite" title="Verde e grafite" style="background:linear-gradient(135deg,#111317 0 38%,#C8E64A 38% 66%,#22B55F 66% 100%)"></button><button type="button" class="bola" data-pal="laranja" aria-pressed="false" aria-label="Abrir com a paleta Laranja e grafite" title="Laranja e grafite" style="background:linear-gradient(135deg,#111317 0 38%,#FFD166 38% 66%,#FF7A1A 66% 100%)"></button><button type="button" class="bola" data-pal="petroleo" aria-pressed="false" aria-label="Abrir com a paleta Petróleo, areia e laranja vibrante" title="Petróleo, areia e laranja vibrante" style="background:linear-gradient(135deg,#0F1E24 0 38%,#C9B79C 38% 66%,#FF6A13 66% 100%)"></button><button type="button" class="bola" data-pal="marinho" aria-pressed="false" aria-label="Abrir com a paleta Marinho, aço e amarelo neon" title="Marinho, aço e amarelo neon" style="background:linear-gradient(135deg,#0E1628 0 38%,#8FA3B8 38% 66%,#FFD60A 66% 100%)"></button><button type="button" class="bola" data-pal="oliva" aria-pressed="false" aria-label="Abrir com a paleta Grafite, oliva e verde-limão" title="Grafite, oliva e verde-limão" style="background:linear-gradient(135deg,#15171A 0 38%,#8A9A5B 38% 66%,#A3E635 66% 100%)"></button><button type="button" class="bola" data-pal="vinho" aria-pressed="false" aria-label="Abrir com a paleta Vinho, rosé e vermelho vibrante" title="Vinho, rosé e vermelho vibrante" style="background:linear-gradient(135deg,#1E1215 0 38%,#B8A0A4 38% 66%,#FF2E4D 66% 100%)"></button><button type="button" class="bola" data-pal="cobre" aria-pressed="true" aria-label="Abrir com a paleta Carvão, cobre e ciano elétrico" title="Carvão, cobre e ciano elétrico" style="background:linear-gradient(135deg,#121417 0 38%,#C07A3E 38% 66%,#00E5FF 66% 100%)"></button></div>
+    <div class="acoes"><a class="btn btn-prim abrir" href="posto%208/index.html" data-href="posto%208/index.html">Abrir modelo</a>
+      <a class="btn btn-sec abrir-apple" href="posto%208/index.html?g=sugestao" data-href="posto%208/index.html">Ver com estilo Apple</a></div>
+  </div>
+</li><li class="modelo rv" style="--i:8">
+  <figure class="foto" data-foto="hero.jpg" data-base="posto 9/img/" data-proporcao="16/10" data-desc="Foto principal do modelo 9" data-tamanho="1920 x 1080" style="aspect-ratio:16/10"><img alt="Prévia do modelo Posto Via Expressa" loading="lazy"></figure>
+  <div class="modelo-txt">
+    <p class="modelo-num">Modelo 9 · Urbano: GNV, recarga e app</p>
+    <h2>Posto Via Expressa</h2>
+    <p>Posto urbano com GNV, recarga para carro elétrico, café 24 horas e vantagens para motoristas de aplicativo.</p>
+    <div class="bolas" role="group" aria-label="Paletas do modelo 9"><button type="button" class="bola" data-pal="padrao" aria-pressed="true" aria-label="Abrir com a paleta Violeta e limão" title="Violeta e limão" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#A3E635 38% 66%,#6D28D9 66% 100%)"></button><button type="button" class="bola" data-pal="azul" aria-pressed="false" aria-label="Abrir com a paleta Azul elétrico e ciano" title="Azul elétrico e ciano" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#22D3EE 38% 66%,#1D4ED8 66% 100%)"></button><button type="button" class="bola" data-pal="verde" aria-pressed="false" aria-label="Abrir com a paleta Verde GNV e amarelo" title="Verde GNV e amarelo" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#FACC15 38% 66%,#047857 66% 100%)"></button><button type="button" class="bola" data-pal="rosa" aria-pressed="false" aria-label="Abrir com a paleta Magenta e laranja" title="Magenta e laranja" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#FB923C 38% 66%,#BE185D 66% 100%)"></button><button type="button" class="bola" data-pal="grafite" aria-pressed="false" aria-label="Abrir com a paleta Grafite e verde neon" title="Grafite e verde neon" style="background:linear-gradient(135deg,#FFFFFF 0 38%,#4ADE80 38% 66%,#1F2937 66% 100%)"></button></div>
+    <div class="acoes"><a class="btn btn-prim abrir" href="posto%209/index.html" data-href="posto%209/index.html">Abrir modelo</a>
+      <a class="btn btn-sec abrir-apple" href="posto%209/index.html?g=sugestao" data-href="posto%209/index.html">Ver com estilo Apple</a></div>
+  </div>
+</li><li class="modelo rv" style="--i:9">
+  <figure class="foto" data-foto="hero.jpg" data-base="posto 10/img/" data-proporcao="16/10" data-desc="Foto principal do modelo 10" data-tamanho="1920 x 1080" style="aspect-ratio:16/10"><img alt="Prévia do modelo Posto Brilho Total" loading="lazy"></figure>
+  <div class="modelo-txt">
+    <p class="modelo-num">Modelo 10 · Estética automotiva premium</p>
+    <h2>Posto Brilho Total</h2>
+    <p>Posto com centro de estética automotiva: lavagem técnica, polimento, higienização e proteção da pintura.</p>
+    <div class="bolas" role="group" aria-label="Paletas do modelo 10"><button type="button" class="bola" data-pal="padrao" aria-pressed="true" aria-label="Abrir com a paleta Preto, grafite e dourado" title="Preto, grafite e dourado" style="background:linear-gradient(135deg,#0B0B0C 0 38%,#9A9AA0 38% 66%,#D4AF37 66% 100%)"></button><button type="button" class="bola" data-pal="ingles" aria-pressed="false" aria-label="Abrir com a paleta Verde-inglês, creme e dourado" title="Verde-inglês, creme e dourado" style="background:linear-gradient(135deg,#0E1A15 0 38%,#CFC6B0 38% 66%,#E0B84C 66% 100%)"></button><button type="button" class="bola" data-pal="noite" aria-pressed="false" aria-label="Abrir com a paleta Azul-noite, prata e champanhe" title="Azul-noite, prata e champanhe" style="background:linear-gradient(135deg,#0B1220 0 38%,#A9B4C2 38% 66%,#E8C98A 66% 100%)"></button><button type="button" class="bola" data-pal="vinho" aria-pressed="false" aria-label="Abrir com a paleta Vinho, rosé e cobre" title="Vinho, rosé e cobre" style="background:linear-gradient(135deg,#1A0E12 0 38%,#C9A9A6 38% 66%,#E08A4F 66% 100%)"></button><button type="button" class="bola" data-pal="gelo" aria-pressed="false" aria-label="Abrir com a paleta Grafite, pérola e azul-gelo" title="Grafite, pérola e azul-gelo" style="background:linear-gradient(135deg,#141518 0 38%,#D9D6CF 38% 66%,#7DD3FC 66% 100%)"></button></div>
+    <div class="acoes"><a class="btn btn-prim abrir" href="posto%2010/index.html" data-href="posto%2010/index.html">Abrir modelo</a>
+      <a class="btn btn-sec abrir-apple" href="posto%2010/index.html?g=sugestao" data-href="posto%2010/index.html">Ver com estilo Apple</a></div>
+  </div>
+</li></ul>
+</main>
+<script>
+(function(){
+  var io='IntersectionObserver' in window&&!document.documentElement.classList.contains('calmo')?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target);}});},{threshold:.1}):null;
+  document.querySelectorAll('.rv').forEach(function(el){if(io)io.observe(el);else el.classList.add('visto');});
+  document.querySelectorAll('figure.foto').forEach(function(f){
+    var ph=document.createElement('span');ph.className='foto-ph';ph.setAttribute('aria-hidden','true');
+    ph.innerHTML='<svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><b></b><span class="ph-tam"></span>';
+    ph.querySelector('b').textContent='FOTO: '+f.getAttribute('data-foto');ph.querySelector('.ph-tam').textContent='Tamanho ideal: '+f.getAttribute('data-tamanho');
+    f.insertBefore(ph,f.firstChild);
+    var url=f.getAttribute('data-base')+f.getAttribute('data-foto'),im=new Image();
+    im.onload=function(){f.querySelector('img').src=url;f.classList.add('tem-foto');};im.src=url;
+  });
+  document.querySelectorAll('.modelo').forEach(function(m){
+    var a=m.querySelector('.abrir'),ap=m.querySelector('.abrir-apple'),bs=m.querySelectorAll('.bola');
+    bs.forEach(function(b){b.addEventListener('click',function(){
+      bs.forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+      a.href=a.getAttribute('data-href')+'?paleta='+b.getAttribute('data-pal');
+      ap.href=ap.getAttribute('data-href')+'?paleta='+b.getAttribute('data-pal')+'&g=sugestao';
+    });});
+  });
+})();
+</script>
+</body>
+</html>

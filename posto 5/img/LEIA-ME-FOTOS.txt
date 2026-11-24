@@ -1,0 +1,66 @@
+FOTOS DO SITE: Posto & Autocenter Central (posto 5)
+============================================================
+
+Salve cada foto nesta pasta (img) com o NOME EXATO da lista.
+A foto aparece sozinha no site, sem mexer no código.
+Se apagar uma foto, o site mostra um quadro dizendo o que fotografar.
+
+Dicas: celular na horizontal, boa luz, sem pessoas de rosto aparente
+sem autorização. Logos sempre em PNG com fundo transparente.
+
+destaque.jpg       Mecânico conferindo o óleo no motor do carro
+                   Tamanho ideal: 1200 x 900
+
+galeria-1.jpg      Mecânico trocando o pneu do carro na oficina
+                   Tamanho ideal: 1200 x 900
+
+galeria-2.jpg      Carro no elevador da oficina, visto de lado
+                   Tamanho ideal: 1200 x 900
+
+galeria-3.jpg      Carro sendo lavado com espuma no box de lavagem
+                   Tamanho ideal: 1200 x 900
+
+galeria-4.jpg      Mecânico de luvas mexendo no motor, de perto
+                   Tamanho ideal: 1200 x 900
+
+galeria-5.jpg      Teste de bateria com os cabos ligados
+                   Tamanho ideal: 1200 x 900
+
+galeria-6.jpg      Roda do carro coberta de espuma na lavagem
+                   Tamanho ideal: 1200 x 900
+
+equipe.jpg         Equipe da oficina trabalhando, de preferência com o uniforme do posto
+                   Tamanho ideal: 1200 x 900
+
+logo.png           Logo do posto em PNG com fundo transparente
+                   Tamanho ideal: 600 x 200
+
+hero.jpg           Carro no elevador da oficina, com a oficina iluminada ao fundo
+                   Tamanho ideal: 1920 x 1080
+
+parceiro-1.png     Logo: Distribuidora. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-2.png     Logo: Marca de pneus. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-3.png     Logo: Marca de lubrificante. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-4.png     Logo: Marca de baterias. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-5.png     Logo: Peças automotivas. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-6.png     Logo: Seguradora. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+bandeira.png       Selo da bandeira do posto em PNG com fundo transparente
+                   Tamanho ideal: 600 x 600
+
+mapa.jpg           Print do mapa ou substituir pelo iframe do Google Maps
+                   Tamanho ideal: 1280 x 720
+
+og.jpg             Imagem que aparece ao compartilhar o link no WhatsApp
+                   Tamanho ideal: 1200 x 630

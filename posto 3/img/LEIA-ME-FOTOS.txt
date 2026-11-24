@@ -1,0 +1,66 @@
+FOTOS DO SITE: Auto Posto Bom Jesus (posto 3)
+============================================================
+
+Salve cada foto nesta pasta (img) com o NOME EXATO da lista.
+A foto aparece sozinha no site, sem mexer no código.
+Se apagar uma foto, o site mostra um quadro dizendo o que fotografar.
+
+Dicas: celular na horizontal, boa luz, sem pessoas de rosto aparente
+sem autorização. Logos sempre em PNG com fundo transparente.
+
+galeria-1.jpg      Balcão da lanchonete com o café e as louças
+                   Tamanho ideal: 1200 x 1200
+
+galeria-2.jpg      Vitrine com os pães e quitandas do dia
+                   Tamanho ideal: 1200 x 1200
+
+galeria-3.jpg      Carro na lavagem, com espuma, de lado
+                   Tamanho ideal: 1200 x 1200
+
+galeria-4.jpg      Frentista calibrando o pneu do carro
+                   Tamanho ideal: 1200 x 1200
+
+galeria-5.jpg      Vista da cidade a partir do posto, no fim da tarde
+                   Tamanho ideal: 1200 x 1200
+
+galeria-6.jpg      Mão do frentista no bico abastecendo o carro
+                   Tamanho ideal: 1200 x 1200
+
+logo.png           Logo do posto em PNG com fundo transparente
+                   Tamanho ideal: 600 x 200
+
+hero.jpg           Cliente abastecendo o carro na pista do posto, luz do dia
+                   Tamanho ideal: 1920 x 1080
+
+equipe.jpg         Equipe do posto reunida na frente da loja, sorrindo
+                   Tamanho ideal: 1500 x 1000
+
+destaque.jpg       Vitrine da lanchonete com pães e quitandas
+                   Tamanho ideal: 1200 x 900
+
+parceiro-1.png     Logo: Distribuidora. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-2.png     Logo: Padaria parceira. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-3.png     Logo: Cooperativa. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-4.png     Logo: Lubrificante. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-5.png     Logo: Seguradora. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-6.png     Logo: Cartão de benefícios. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+bandeira.png       Selo da bandeira do posto em PNG com fundo transparente
+                   Tamanho ideal: 600 x 600
+
+mapa.jpg           Print do mapa ou substituir pelo iframe do Google Maps
+                   Tamanho ideal: 1280 x 720
+
+og.jpg             Imagem que aparece ao compartilhar o link no WhatsApp
+                   Tamanho ideal: 1200 x 630

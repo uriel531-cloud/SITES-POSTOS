@@ -1,0 +1,63 @@
+FOTOS DO SITE: Posto Rota Sul (posto 7)
+============================================================
+
+Salve cada foto nesta pasta (img) com o NOME EXATO da lista.
+A foto aparece sozinha no site, sem mexer no código.
+Se apagar uma foto, o site mostra um quadro dizendo o que fotografar.
+
+Dicas: celular na horizontal, boa luz, sem pessoas de rosto aparente
+sem autorização. Logos sempre em PNG com fundo transparente.
+
+galeria-1.jpg      Rodovia à noite com o movimento dos faróis
+                   Tamanho ideal: 1200 x 900
+
+galeria-2.jpg      Fila de carretas na rodovia vista do alto
+                   Tamanho ideal: 1200 x 900
+
+galeria-3.jpg      Praça de pedágio vista do alto
+                   Tamanho ideal: 1200 x 900
+
+galeria-4.jpg      Motorista sorrindo na cabine do caminhão
+                   Tamanho ideal: 1200 x 900
+
+galeria-5.jpg      Rodovia vista do alto em linha reta
+                   Tamanho ideal: 1200 x 900
+
+galeria-6.jpg      Motorista descansando na cabine
+                   Tamanho ideal: 1200 x 900
+
+logo.png           Logo do posto em PNG com fundo transparente
+                   Tamanho ideal: 600 x 200
+
+hero.jpg           Rodovia em frente ao posto à noite, com os faróis riscando a pista
+                   Tamanho ideal: 1920 x 1080
+
+destaque.jpg       Prato servido no restaurante do posto, com café
+                   Tamanho ideal: 1200 x 900
+
+parceiro-1.png     Logo: Distribuidora. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-2.png     Logo: Cartão frota. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-3.png     Logo: Pedágio eletrônico. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-4.png     Logo: Rastreamento. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-5.png     Logo: Lubrificante. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-6.png     Logo: Seguradora. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+bandeira.png       Selo da bandeira do posto em PNG com fundo transparente
+                   Tamanho ideal: 600 x 600
+
+mapa.jpg           Print do mapa ou substituir pelo iframe do Google Maps
+                   Tamanho ideal: 1280 x 720
+
+og.jpg             Imagem que aparece ao compartilhar o link no WhatsApp
+                   Tamanho ideal: 1200 x 630

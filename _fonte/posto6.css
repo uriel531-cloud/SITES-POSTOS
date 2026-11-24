@@ -1,0 +1,41 @@
+/* MODELO 6 · variação do 1: rodovia de serra, painel de preço do diesel no topo */
+.m6 .hero{align-items:center}
+.m6 .hero-grid6{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(28px,5vw,64px);align-items:end}
+.m6 .hero h1{font-size:clamp(50px,8.4vw,108px)}
+.m6 .painel-diesel{background:color-mix(in srgb,var(--fundo) 80%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid color-mix(in srgb,var(--sobre-foto) 16%,transparent);border-top:4px solid var(--marca);border-radius:12px;padding:22px 24px;color:var(--texto)}
+.m6 .painel-tit{display:flex;gap:8px;align-items:center;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--suave)}
+.m6 .painel-tit .ic{color:var(--destaque);width:20px;height:20px}
+.m6 .painel-diesel ul{display:grid;margin:10px 0 12px}
+.m6 .painel-diesel li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid var(--linha)}
+.m6 .painel-diesel li span{font-weight:600}
+.m6 .painel-diesel strong{font-family:var(--titulo);font-size:clamp(30px,3.2vw,40px);color:var(--marca-forte);font-weight:800}
+.m6 .painel-link{display:inline-flex;gap:8px;align-items:center;font-weight:700;color:var(--marca-forte);text-decoration:none;min-height:44px}
+.m6 .painel-link .ic{width:18px;height:18px}
+
+/* Serviços em lista com título fixo ao lado */
+.m6 .serv6{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,72px);align-items:start}
+.m6 .serv6 .cab{position:sticky;top:calc(var(--topo) + 32px);margin-bottom:0}
+.m6 .serv6 .cab .btn{margin-top:26px}
+.m6 .lista6{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.m6 .linha-serv{display:flex;gap:16px;padding:20px;align-items:flex-start}
+.m6 .linha-serv .ic-servico{width:40px;height:40px;flex:none;color:var(--destaque)}
+.m6 .linha-serv h3{font-size:21px}
+.m6 .linha-serv p{color:var(--suave);font-size:15px;margin-top:4px}
+
+/* Galeria em mosaico */
+.m6 .mosaico{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:12px}
+.m6 .mosaico li{position:relative;border-radius:10px;overflow:hidden}
+.m6 .mosaico .foto{position:absolute;inset:0;height:100%;aspect-ratio:auto!important;border-radius:10px}
+.m6 .mos-1{grid-column:span 2;grid-row:span 2}
+.m6 .mos-4,.m6 .mos-5,.m6 .mos-6{grid-column:span 2}
+.m6 .mosaico p{position:absolute;left:12px;bottom:12px;z-index:2;background:color-mix(in srgb,var(--veu) 92%,transparent);color:var(--sobre-foto);padding:6px 10px;border-radius:6px;font-size:13px;font-weight:600;max-width:calc(100% - 24px)}
+.m6 .mosaico .foto:not(.tem-foto)+p{display:none}
+
+@media (max-width:900px){
+  .m6 .hero-grid6,.m6 .serv6{grid-template-columns:1fr}
+  .m6 .serv6 .cab{position:static}
+  .m6 .lista6{grid-template-columns:1fr}
+  .m6 .mosaico{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+  .m6 .mos-1{grid-column:span 2;grid-row:span 2}
+  .m6 .mos-2,.m6 .mos-3{grid-column:span 1}
+}

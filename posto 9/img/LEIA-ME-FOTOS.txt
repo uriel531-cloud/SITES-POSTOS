@@ -1,0 +1,63 @@
+FOTOS DO SITE: Posto Via Expressa (posto 9)
+============================================================
+
+Salve cada foto nesta pasta (img) com o NOME EXATO da lista.
+A foto aparece sozinha no site, sem mexer no código.
+Se apagar uma foto, o site mostra um quadro dizendo o que fotografar.
+
+Dicas: celular na horizontal, boa luz, sem pessoas de rosto aparente
+sem autorização. Logos sempre em PNG com fundo transparente.
+
+galeria-1.jpg      Motorista no carro com o celular, pronto para rodar
+                   Tamanho ideal: 1200 x 900
+
+destaque.jpg       Carregador ligado no carro elétrico, de perto
+                   Tamanho ideal: 1200 x 900
+
+galeria-2.jpg      Celular com o mapa de navegação no painel do carro
+                   Tamanho ideal: 1200 x 900
+
+galeria-3.jpg      Copos de café no balcão da loja
+                   Tamanho ideal: 1200 x 900
+
+galeria-4.jpg      Vista da cidade à noite a partir do posto
+                   Tamanho ideal: 1200 x 900
+
+galeria-5.jpg      Celular no suporte do carro com o mapa aberto
+                   Tamanho ideal: 1200 x 900
+
+galeria-6.jpg      Avenida movimentada à noite, perto do posto
+                   Tamanho ideal: 1200 x 900
+
+logo.png           Logo do posto em PNG com fundo transparente
+                   Tamanho ideal: 600 x 200
+
+hero.jpg           Avenida em frente ao posto à noite, com o movimento dos carros
+                   Tamanho ideal: 1920 x 1080
+
+parceiro-1.png     Logo: Distribuidora. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-2.png     Logo: Rede de recarga. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-3.png     Logo: App de corrida. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-4.png     Logo: Carteira digital. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-5.png     Logo: Cafeteria. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-6.png     Logo: Seguradora. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+bandeira.png       Selo da bandeira do posto em PNG com fundo transparente
+                   Tamanho ideal: 600 x 600
+
+mapa.jpg           Print do mapa ou substituir pelo iframe do Google Maps
+                   Tamanho ideal: 1280 x 720
+
+og.jpg             Imagem que aparece ao compartilhar o link no WhatsApp
+                   Tamanho ideal: 1200 x 630

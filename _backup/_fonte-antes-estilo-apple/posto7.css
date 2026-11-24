@@ -1,0 +1,39 @@
+/* MODELO 7 · variação do 1: rodovia à noite, topo centralizado e blocos de informação */
+.m7 .hero{flex-direction:column;justify-content:flex-end;align-items:stretch;padding-bottom:0}
+.m7 .hero-veu{background:radial-gradient(ellipse at 50% 55%,var(--veu) 0%,color-mix(in srgb,var(--veu) 70%,transparent) 45%,color-mix(in srgb,var(--veu) 35%,transparent) 100%),
+                         linear-gradient(0deg,var(--fundo) 0%,transparent 30%)}
+.m7 .hero-centro{display:grid;justify-items:center;text-align:center;margin-bottom:auto;padding-top:clamp(24px,6vh,72px)}
+.m7 .hero h1{max-width:none;font-size:clamp(52px,9.6vw,128px)}
+.m7 .hero .lead{margin-inline:auto}
+.m7 .hero .acoes{justify-content:center}
+.m7 .tiles7{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha);margin-top:56px;border:1px solid var(--linha);border-bottom:0;border-radius:12px 12px 0 0;overflow:hidden}
+.m7 .tiles7 li{display:flex;gap:12px;align-items:center;padding:20px;background:color-mix(in srgb,var(--fundo) 90%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:var(--texto)}
+.m7 .tiles7 .ic{color:var(--marca);width:30px;height:30px}
+.m7 .tiles7 strong{display:block;font-family:var(--titulo);text-transform:uppercase;font-size:21px;line-height:1.1}
+.m7 .tiles7 span{font-size:13.5px;color:var(--suave)}
+
+/* Faixa de serviços */
+.m7 .faixa7{background:var(--marca);color:var(--marca-texto);padding:14px 0}
+.m7 .mq-item{display:inline-flex;gap:10px;align-items:center;font-family:var(--titulo);text-transform:uppercase;font-weight:700;font-size:20px;letter-spacing:.03em;white-space:nowrap}
+
+/* Painel de preços em uma peça só */
+.m7 .painel7{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border:1px solid var(--linha);border-radius:12px;overflow:hidden;background:var(--card)}
+.m7 .painel7 .preco{border-right:1px solid var(--linha);border-bottom:1px solid var(--linha);padding:26px 22px;margin:0 -1px -1px 0}
+.m7 .painel7 .preco::before{display:none}
+.m7 .painel7 .preco-valor{color:var(--marca-forte);text-shadow:0 0 22px color-mix(in srgb,var(--marca) 45%,transparent);font-size:clamp(40px,4.4vw,54px)}
+
+/* Serviços numerados */
+.m7 .grade7{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.m7 .num7{padding:26px 22px;position:relative;display:grid;gap:8px;align-content:start}
+.m7 .n7{font-family:var(--titulo);font-size:58px;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--destaque)}
+.m7 .num7 .ic-servico{position:absolute;right:20px;top:26px;color:var(--destaque)}
+.m7 .num7 p{color:var(--suave);font-size:15px}
+
+@media (max-width:960px){
+  .m7 .tiles7,.m7 .grade7{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .m7 .tiles7 li{padding:14px;gap:8px}
+  .m7 .tiles7 strong{font-size:17px}
+  .m7 .grade7{grid-template-columns:1fr}
+}

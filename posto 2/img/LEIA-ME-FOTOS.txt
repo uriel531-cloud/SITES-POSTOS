@@ -1,0 +1,63 @@
+FOTOS DO SITE: Posto Avenida (posto 2)
+============================================================
+
+Salve cada foto nesta pasta (img) com o NOME EXATO da lista.
+A foto aparece sozinha no site, sem mexer no código.
+Se apagar uma foto, o site mostra um quadro dizendo o que fotografar.
+
+Dicas: celular na horizontal, boa luz, sem pessoas de rosto aparente
+sem autorização. Logos sempre em PNG com fundo transparente.
+
+galeria-3.jpg      Xícara de café com arte no leite, no balcão do café
+                   Tamanho ideal: 1200 x 900
+
+galeria-4.jpg      Cliente pagando pelo celular na maquininha
+                   Tamanho ideal: 1200 x 900
+
+galeria-5.jpg      Máquina de café expresso do posto, com o barista trabalhando
+                   Tamanho ideal: 1200 x 900
+
+galeria-6.jpg      Pagamento com cartão na maquininha, de perto
+                   Tamanho ideal: 1200 x 900
+
+galeria-1.jpg      Cliente abastecendo o carro na pista, de lado, com luz do dia
+                   Tamanho ideal: 1200 x 900
+
+galeria-2.jpg      Geladeiras e prateleiras da conveniência, bem organizadas
+                   Tamanho ideal: 1200 x 900
+
+destaque.jpg       Balcão do café com a máquina de expresso e os doces
+                   Tamanho ideal: 1200 x 900
+
+logo.png           Logo do posto em PNG com fundo transparente
+                   Tamanho ideal: 600 x 200
+
+hero.jpg           Carro sendo abastecido com o bico na mão, de perto, luz do dia
+                   Tamanho ideal: 1920 x 1080
+
+parceiro-1.png     Logo: Distribuidora. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-2.png     Logo: App de fidelidade. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-3.png     Logo: Cafeteria. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-4.png     Logo: Marca de bebidas. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-5.png     Logo: Carteira digital. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-6.png     Logo: Cartão de benefícios. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+bandeira.png       Selo da bandeira do posto em PNG com fundo transparente
+                   Tamanho ideal: 600 x 600
+
+mapa.jpg           Print do mapa ou substituir pelo iframe do Google Maps
+                   Tamanho ideal: 1280 x 720
+
+og.jpg             Imagem que aparece ao compartilhar o link no WhatsApp
+                   Tamanho ideal: 1200 x 630

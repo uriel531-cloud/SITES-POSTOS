@@ -1,0 +1,78 @@
+/* MODELO 2 · URBANO PREMIUM: claro, azul-petróleo, cantos arredondados */
+body.m2{--raio-btn:999px;--raio-card:22px;--raio-foto:24px}
+.m2 h1,.m2 h2{letter-spacing:-.035em;font-weight:800}
+.m2 h3{font-weight:800;letter-spacing:-.01em}
+.m2 .logo-nome{font-weight:800;letter-spacing:-.03em}
+
+/* Topo */
+.m2 .hero{padding:calc(var(--topo) + clamp(32px,6vw,72px)) 0 clamp(56px,8vw,104px);
+  background:radial-gradient(ellipse at 88% 8%,color-mix(in srgb,var(--destaque) 20%,transparent),transparent 55%),
+             radial-gradient(ellipse at 0% 100%,color-mix(in srgb,var(--marca) 8%,transparent),transparent 50%),var(--fundo)}
+.m2 .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,5vw,80px);align-items:center}
+.m2 .hero h1{font-size:clamp(44px,6.4vw,80px);line-height:1;margin:6px 0 22px}
+.m2 .hero h1 .ln:nth-child(2) span{color:var(--marca-forte)}
+.m2 .lead{color:var(--suave);margin-bottom:32px}
+.m2 .selos .ic{color:var(--marca-forte)}
+.m2 .hero-visual{position:relative;padding:0 0 28px 28px}
+.m2 .hero-media{border-radius:34px;box-shadow:0 50px 90px -40px color-mix(in srgb,var(--texto) 45%,transparent)}
+.m2 .hero-media .foto{aspect-ratio:4/5!important;border-radius:34px}
+.m2 .pix-badge{position:absolute;left:0;bottom:56px;z-index:3;display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--linha);padding:14px 20px 14px 14px;border-radius:20px;box-shadow:0 24px 48px -12px color-mix(in srgb,var(--texto) 25%,transparent)}
+.m2 .pix-badge .ic{width:46px;height:46px;padding:10px;color:var(--marca-forte);background:color-mix(in srgb,var(--marca) 12%,transparent);border-radius:14px}
+.m2 .pix-badge strong{display:block;font-size:16px;line-height:1.2}
+.m2 .pix-badge span{font-size:13.5px;color:var(--suave)}
+
+/* Preços */
+.m2 .preco{padding:26px 24px;box-shadow:0 14px 34px -22px color-mix(in srgb,var(--texto) 40%,transparent)}
+.m2 .preco-nome{text-transform:none;letter-spacing:0;font-size:15px;display:flex;align-items:center;gap:8px}
+.m2 .preco-nome::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--marca)}
+.m2 .preco-valor{font-weight:800;letter-spacing:-.03em}
+
+/* Abas */
+.m2 .abas-lista{background:color-mix(in srgb,var(--texto) 5%,transparent);border-radius:99px;padding:6px;display:inline-flex;max-width:100%}
+.m2 .aba{border-radius:99px;background:none}
+.m2 .aba[aria-selected="true"]{background:var(--card)}
+.m2 .aba-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center;margin-top:36px}
+.m2 .aba-txt h3{font-size:clamp(28px,3.2vw,40px);line-height:1.1}
+.m2 .aba-txt p{color:var(--suave);margin:14px 0 24px;font-size:17px}
+.m2 .aba-media .foto{border-radius:26px}
+
+/* Cartão do app (M9) */
+.m2 .app-card{width:min(360px,100%);margin-inline:auto;background:var(--card);border:1px solid var(--linha);border-radius:32px;padding:26px;display:grid;gap:14px;box-shadow:0 40px 80px -30px color-mix(in srgb,var(--texto) 45%,transparent)}
+.m2 .app-topo{display:flex;align-items:center;gap:10px;font-weight:800}
+.m2 .app-topo .ic{width:40px;height:40px;padding:8px;border-radius:12px;background:var(--marca);color:var(--marca-texto)}
+.m2 .app-saldo small{display:block;color:var(--suave);font-size:14px;font-weight:600}
+.m2 .app-saldo strong{font-size:52px;letter-spacing:-.04em;line-height:1}
+.m2 .app-barra{height:10px;border-radius:99px;background:color-mix(in srgb,var(--texto) 10%,transparent);overflow:hidden}
+.m2 .app-barra i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--marca),var(--destaque));transform:scaleX(var(--v));transform-origin:left}
+.m2 .app-meta{font-size:14px;color:var(--suave)}
+.m2 .app-lista{display:grid;gap:4px;border-top:1px solid var(--linha);padding-top:10px}
+.m2 .app-lista li{display:flex;justify-content:space-between;padding:8px 0;font-size:15px}
+.m2 .app-lista b{color:var(--marca-forte)}
+.m2 .app-nota{font-size:12px;color:var(--suave);text-align:center}
+
+/* Serviços */
+.m2 .servico{padding:26px}
+.m2 .servico .ic-servico{width:52px;height:52px;padding:12px;border-radius:16px;background:color-mix(in srgb,var(--marca) 11%,transparent)}
+
+/* Galeria */
+.m2 .gal-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+.m2 .gal-grid li:nth-child(2),.m2 .gal-grid li:nth-child(3){transform:translateY(0)}
+.m2 .gal-grid .foto{border-radius:24px}
+
+/* Pagamento em faixa */
+.m2 .pagamento .mq{padding:8px 0}
+.m2 .chip{display:inline-flex;gap:10px;align-items:center;padding:16px 24px;border-radius:99px;background:var(--card);border:1px solid var(--linha);font-weight:700;white-space:nowrap;box-shadow:0 10px 24px -16px color-mix(in srgb,var(--texto) 40%,transparent)}
+.m2 .chip .ic{color:var(--marca-forte)}
+
+/* Chamada final */
+.m2 .final-box{padding:clamp(44px,6vw,80px) 24px;border-radius:36px;background:var(--marca);color:var(--marca-texto)}
+.m2 .final-box .sub{color:inherit;opacity:.9}
+.m2 .final-box .btn-prim{background:var(--marca-texto);color:var(--marca)}
+.m2 .final-box .btn-sec{border-color:color-mix(in srgb,var(--marca-texto) 50%,transparent);color:var(--marca-texto)}
+
+@media (max-width:900px){
+  .m2 .hero-grid,.m2 .aba-grid{grid-template-columns:1fr}
+  .m2 .hero-visual{padding:0 0 24px 12px}
+  .m2 .gal-grid{grid-template-columns:1fr}
+  .m2 .abas-lista{display:flex;border-radius:16px}
+}

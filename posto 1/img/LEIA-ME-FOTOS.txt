@@ -1,0 +1,63 @@
+FOTOS DO SITE: Posto Estrada Real (posto 1)
+============================================================
+
+Salve cada foto nesta pasta (img) com o NOME EXATO da lista.
+A foto aparece sozinha no site, sem mexer no código.
+Se apagar uma foto, o site mostra um quadro dizendo o que fotografar.
+
+Dicas: celular na horizontal, boa luz, sem pessoas de rosto aparente
+sem autorização. Logos sempre em PNG com fundo transparente.
+
+galeria-1.jpg      Carreta na pista de diesel, de frente, com o posto ao fundo
+                   Tamanho ideal: 1200 x 900
+
+galeria-2.jpg      Caminhão na rodovia em frente ao posto
+                   Tamanho ideal: 1200 x 900
+
+galeria-3.jpg      Pátio com carretas estacionadas ao entardecer
+                   Tamanho ideal: 1200 x 900
+
+galeria-4.jpg      Pátio à noite com carretas paradas
+                   Tamanho ideal: 1200 x 900
+
+galeria-5.jpg      Caminhão saindo do posto para a estrada
+                   Tamanho ideal: 1200 x 900
+
+galeria-6.jpg      Frentista abastecendo, mão no bico
+                   Tamanho ideal: 1200 x 900
+
+logo.png           Logo do posto em PNG com fundo transparente
+                   Tamanho ideal: 600 x 200
+
+hero.jpg           Fachada do posto à noite, com a cobertura e as bombas iluminadas
+                   Tamanho ideal: 1920 x 1080
+
+destaque.jpg       Prato do restaurante servido na mesa, de cima, com boa luz
+                   Tamanho ideal: 1200 x 900
+
+parceiro-1.png     Logo: Distribuidora. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-2.png     Logo: Cartão frota. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-3.png     Logo: App de frete. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-4.png     Logo: Lubrificante. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-5.png     Logo: Rastreamento. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+parceiro-6.png     Logo: Seguradora. PNG com fundo transparente
+                   Tamanho ideal: 400 x 160
+
+bandeira.png       Selo da bandeira do posto em PNG com fundo transparente
+                   Tamanho ideal: 600 x 600
+
+mapa.jpg           Print do mapa ou substituir pelo iframe do Google Maps
+                   Tamanho ideal: 1280 x 720
+
+og.jpg             Imagem que aparece ao compartilhar o link no WhatsApp
+                   Tamanho ideal: 1200 x 630

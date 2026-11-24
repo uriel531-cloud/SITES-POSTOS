@@ -1,0 +1,69 @@
+/* MODELO 5 · AUTOCENTER: azul-marinho e laranja, visual técnico */
+body.m5{--raio-btn:10px;--raio-card:14px;--raio-foto:14px}
+.m5 h1,.m5 h2{letter-spacing:-.035em;font-weight:700}
+.m5 h3{font-weight:700;letter-spacing:-.01em}
+.m5 .rotulo{font-family:var(--titulo)}
+
+/* Cabeçalho sempre sólido (o topo tem foto só de um lado) */
+.m5 .topo{background:color-mix(in srgb,var(--fundo) 93%,transparent);border-color:var(--linha);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+
+/* Topo com foto em diagonal */
+.m5 .hero{min-height:92vh;min-height:92svh;display:flex;align-items:center;padding:calc(var(--topo) + 40px) 0 80px;background:var(--fundo)}
+.m5 .hero-diag{position:absolute;top:0;bottom:0;right:0;left:max(48%,calc((100vw - 1200px) / 2 + 560px));clip-path:polygon(14% 0,100% 0,100% 100%,0 100%)}
+.m5 .hero-veu{display:none}
+.m5 .hero-txt{max-width:520px;margin-left:max(16px,calc((100vw - 1200px) / 2));margin-right:auto;width:auto}
+.m5 .hero h1{font-size:clamp(42px,5.4vw,74px);line-height:.98;margin:10px 0 22px}
+.m5 .hero h1 .ln:nth-child(2) span{color:var(--marca-forte)}
+.m5 .lead{color:var(--suave);margin-bottom:30px}
+.m5 .selos .ic{color:var(--marca-forte)}
+.m5 .hero .btn-foto{color:var(--texto);border-color:color-mix(in srgb,var(--texto) 30%,transparent)}
+.m5 .hero .btn-foto:hover{background:color-mix(in srgb,var(--texto) 7%,transparent)}
+
+/* Serviços */
+.m5 .servico{padding:24px;position:relative;overflow:hidden}
+.m5 .servico .ic-servico{width:54px;height:54px;padding:12px;border-radius:12px;background:color-mix(in srgb,var(--marca) 14%,transparent)}
+.m5 .servico::after{content:"";position:absolute;right:-30px;top:-30px;width:90px;height:90px;border-radius:50%;border:1px dashed color-mix(in srgb,var(--marca) 35%,transparent)}
+
+/* Abas */
+.m5 .aba{font-family:var(--titulo)}
+.m5 .aba-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center;margin-top:32px}
+.m5 .aba-txt h3{font-size:clamp(28px,3.2vw,40px);line-height:1.05}
+.m5 .aba-txt p{color:var(--suave);margin:14px 0 24px;font-size:17px}
+
+/* Checklist com barras (M12) e cartão de agenda (M9) */
+.m5 .check-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,72px);align-items:center}
+.m5 .check-lista{display:grid;margin-top:26px}
+.m5 .check-lista li{display:grid;grid-template-columns:170px 1fr auto;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--linha);font-weight:600}
+.m5 .check-lista b{display:flex;gap:6px;align-items:center;font-size:13px;color:var(--suave);font-weight:600}
+.m5 .check-lista b .ic{width:18px;height:18px;color:var(--marca-forte)}
+.m5 .agenda-card{background:linear-gradient(160deg,color-mix(in srgb,var(--marca) 22%,var(--card)),var(--card) 60%);border:1px solid color-mix(in srgb,var(--marca) 40%,transparent);border-radius:22px;padding:clamp(26px,3vw,38px);display:grid;gap:14px;box-shadow:0 40px 80px -40px color-mix(in srgb,var(--texto) 45%,transparent)}
+.m5 .ic-grande{width:56px;height:56px;color:var(--marca-forte)}
+.m5 .agenda-card h3{font-size:30px}
+.m5 .agenda-card p{color:var(--suave)}
+.m5 .agenda-card .btn{justify-self:start}
+
+/* Preços */
+.m5 .preco{border-left:4px solid var(--marca)}
+.m5 .preco-valor{font-weight:700;letter-spacing:-.03em}
+
+/* Galeria horizontal */
+.m5 .oficina{padding-top:clamp(72px,10vw,120px)}
+.m5 .hscroll:not(.motion) .hscroll-fixo{padding-bottom:clamp(56px,8vw,96px)}
+
+/* Chamada final */
+.m5 .final-box{padding:clamp(40px,6vw,72px) 24px;border-radius:22px;background:var(--card);border:1px solid var(--linha);position:relative;overflow:hidden}
+.m5 .final-box::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--marca) 7%,transparent) 0 2px,transparent 2px 22px);pointer-events:none}
+
+@media (max-width:960px){
+  .m5 .hero{min-height:88vh;min-height:88svh;align-items:flex-end;color:var(--sobre-foto)}
+  .m5 .hero-diag{left:0;clip-path:none}
+  .m5 .hero-veu{display:block;position:absolute;inset:0;z-index:0;background:linear-gradient(0deg,var(--veu) 0%,var(--veu) 45%,color-mix(in srgb,var(--veu) 45%,transparent) 100%)}
+  .m5 .hero-txt{margin:0 16px}
+  .m5 .hero .rotulo,.m5 .hero .selos .ic{color:var(--sobre-foto)}
+  .m5 .hero h1 .ln:nth-child(2) span{color:var(--sobre-foto);text-decoration:underline;text-decoration-color:var(--marca);text-decoration-thickness:.08em;text-underline-offset:.12em}
+  .m5 .lead{color:color-mix(in srgb,var(--sobre-foto) 90%,transparent)}
+  .m5 .hero .btn-foto{color:var(--sobre-foto);border-color:color-mix(in srgb,var(--sobre-foto) 55%,transparent)}
+  .m5 .aba-grid,.m5 .check-grid{grid-template-columns:1fr}
+  .m5 .check-lista li{grid-template-columns:1fr auto}
+  .m5 .check-lista .barra{grid-column:1 / -1;grid-row:2}
+}

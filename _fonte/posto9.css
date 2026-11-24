@@ -1,0 +1,91 @@
+/* MODELO 9 · URBANO: GNV, recarga elétrica e motorista de app. Claro, violeta e limão */
+body.m9{--raio-btn:14px;--raio-card:20px;--raio-foto:22px}
+.m9 h1,.m9 h2{font-weight:800;letter-spacing:-.04em}
+.m9 h3{font-weight:700;letter-spacing:-.02em}
+.m9 .logo-nome{font-weight:800;letter-spacing:-.04em}
+
+/* Topo */
+.m9 .hero{padding:calc(var(--topo) + clamp(32px,6vw,72px)) 0 clamp(56px,8vw,104px);
+  background:radial-gradient(ellipse at 80% 30%,color-mix(in srgb,var(--destaque) 22%,transparent),transparent 50%),
+             radial-gradient(ellipse at 10% 90%,color-mix(in srgb,var(--marca) 12%,transparent),transparent 50%),var(--fundo)}
+.m9 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(var(--linha) 1px,transparent 1px),linear-gradient(90deg,var(--linha) 1px,transparent 1px);background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(ellipse at 30% 40%,black,transparent 70%);mask-image:radial-gradient(ellipse at 30% 40%,black,transparent 70%)}
+.m9 .hero-grid9{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,80px);align-items:center}
+.m9 .hero h1{font-size:clamp(44px,6.6vw,84px);line-height:.98;margin:8px 0 22px}
+.m9 .hero h1 .ln:nth-child(2) span{color:var(--marca-forte)}
+.m9 .lead{color:var(--suave);margin-bottom:32px}
+.m9 .hero-visual9{position:relative;padding:20px 24px}
+.m9 .hero-media{border-radius:30px;box-shadow:0 50px 90px -40px color-mix(in srgb,var(--marca) 60%,transparent)}
+.m9 .hero-media .foto{aspect-ratio:4/5!important;border-radius:30px}
+.m9 .chip9{position:absolute;z-index:3;display:inline-flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--linha);padding:10px 16px;border-radius:99px;font-weight:700;font-size:14.5px;box-shadow:0 18px 36px -14px color-mix(in srgb,var(--texto) 30%,transparent);white-space:nowrap}
+.m9 .chip9 .ic{width:20px;height:20px;color:var(--marca-forte)}
+.m9 .c9-0{top:8%;left:0}.m9 .c9-1{top:34%;right:0}.m9 .c9-2{bottom:26%;left:-8px}.m9 .c9-3{bottom:6%;right:12%}
+
+/* Preços */
+.m9 .preco{padding:24px;position:relative}
+.m9 .preco-nome{text-transform:none;letter-spacing:0;font-size:15px;color:var(--texto)}
+.m9 .preco-valor{font-weight:800;letter-spacing:-.03em}
+.m9 .preco:nth-child(n+3){background:linear-gradient(160deg,color-mix(in srgb,var(--destaque) 18%,var(--card)),var(--card) 70%)}
+
+/* Abas */
+.m9 .abas-lista{background:color-mix(in srgb,var(--texto) 5%,transparent);border-radius:16px;padding:6px;display:inline-flex;max-width:100%}
+.m9 .aba{border-radius:12px;background:none}
+.m9 .aba[aria-selected="true"]{background:var(--card)}
+.m9 .aba-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:center;margin-top:36px}
+.m9 .aba-txt h3{font-size:clamp(28px,3.2vw,40px);line-height:1.05}
+.m9 .aba-txt p{color:var(--suave);margin:14px 0 24px;font-size:17px}
+
+/* Serviços em bento */
+.m9 .bento9{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.m9 .bento{padding:26px;display:grid;gap:10px;align-content:start;min-height:180px}
+.m9 .b-largo{grid-column:span 2}
+.m9 .bento p{color:var(--suave)}
+.m9 .bento .ic-servico{width:48px;height:48px;padding:11px;border-radius:14px;background:color-mix(in srgb,var(--marca) 10%,transparent)}
+.m9 .bento:first-child{background:var(--marca);color:var(--marca-texto);border-color:transparent}
+.m9 .bento:first-child p,.m9 .bento:first-child .ic-servico{color:inherit}
+.m9 .bento:first-child .ic-servico{background:color-mix(in srgb,var(--marca-texto) 16%,transparent)}
+.m9 .bento:first-child h3{font-size:32px}
+
+/* Programa Motorista Parceiro */
+.m9 .mot-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:center}
+.m9 .lanche-lista{display:grid;gap:12px;margin:24px 0 28px;font-weight:700}
+.m9 .lanche-lista li{display:flex;gap:12px;align-items:center}
+.m9 .lanche-lista .ic{color:var(--marca-forte)}
+.m9 .app9{width:min(360px,100%);margin-inline:auto;background:var(--card);border:1px solid var(--linha);border-radius:30px;padding:26px;display:grid;gap:12px;box-shadow:0 40px 80px -30px color-mix(in srgb,var(--marca) 45%,transparent)}
+.m9 .app9-topo{display:flex;align-items:center;gap:10px;font-weight:800}
+.m9 .app9-topo .ic{width:40px;height:40px;padding:8px;border-radius:12px;background:var(--marca);color:var(--marca-texto)}
+.m9 .app9-nome{font-family:var(--titulo);font-size:26px;font-weight:800;letter-spacing:-.03em}
+.m9 .app9-linha{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--linha)}
+.m9 .app9-linha b{color:var(--marca-forte);font-size:18px}
+.m9 .app9 .barra i{transform:scaleX(var(--v))}
+.m9 .app9-meta{font-size:14px;color:var(--suave)}
+.m9 .app-nota{font-size:12px;color:var(--suave);text-align:center}
+
+/* Galeria */
+.m9 .gal9{grid-template-columns:repeat(3,1fr)}
+.m9 .gal9 .foto{border-radius:22px}
+
+/* Pagamento */
+.m9 .pagamento .mq{padding:8px 0}
+.m9 .chip{display:inline-flex;gap:10px;align-items:center;padding:16px 24px;border-radius:99px;background:var(--card);border:1px solid var(--linha);font-weight:700;white-space:nowrap}
+.m9 .chip .ic{color:var(--marca-forte)}
+
+/* Chamada final */
+.m9 .final-box{padding:clamp(44px,6vw,80px) 24px;border-radius:32px;background:var(--marca);color:var(--marca-texto)}
+.m9 .final-box .sub{color:inherit;opacity:.92}
+.m9 .final-box .btn-prim{background:var(--marca-texto);color:var(--marca)}
+.m9 .final-box .btn-sec{border-color:color-mix(in srgb,var(--marca-texto) 50%,transparent);color:var(--marca-texto)}
+
+@media (max-width:960px){
+  .m9 .hero-grid9,.m9 .aba-grid,.m9 .mot-grid{grid-template-columns:1fr}
+  .m9 .bento9{grid-template-columns:1fr 1fr}
+  .m9 .gal9{grid-template-columns:1fr}
+  .m9 .abas-lista{display:flex}
+}
+@media (max-width:560px){
+  .m9 .bento9{grid-template-columns:1fr}
+  .m9 .b-largo{grid-column:auto}
+  .m9 .hero-visual9{padding:16px 6px}
+  .m9 .c9-2{left:0}
+}

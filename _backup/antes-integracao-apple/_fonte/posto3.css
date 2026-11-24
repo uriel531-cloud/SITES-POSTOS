@@ -1,0 +1,77 @@
+/* MODELO 3 · FAMÍLIA, CIDADE PEQUENA: creme, verde e laranja, títulos com serifa */
+body.m3{--raio-btn:14px;--raio-card:20px;--raio-foto:18px}
+.m3 h1,.m3 h2{font-weight:700;letter-spacing:-.02em}
+.m3 h3{font-family:var(--titulo);font-weight:700}
+.m3 .logo-nome{font-size:22px}
+
+/* Topo */
+.m3 .hero{padding:calc(var(--topo) + clamp(28px,5vw,64px)) 0 clamp(48px,7vw,88px)}
+.m3 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);align-items:center}
+.m3 .hero h1{font-size:clamp(44px,6.4vw,84px);line-height:1.02;margin:6px 0 22px}
+.m3 .hero h1 .ln:nth-child(2) span{color:var(--marca-forte);font-style:italic}
+.m3 .lead{color:var(--suave);margin-bottom:30px}
+.m3 .hero-visual{position:relative;max-width:480px;justify-self:end;width:100%}
+.m3 .arco{border-radius:999px 999px 26px 26px}
+.m3 .arco .foto{aspect-ratio:4/5!important;border-radius:999px 999px 26px 26px}
+.m3 .carimbo{position:absolute;left:-18px;bottom:36px;z-index:3;width:136px;height:136px;border-radius:50%;background:var(--marca);color:var(--marca-texto);display:grid;place-content:center;text-align:center;transform:rotate(-10deg);box-shadow:0 18px 36px -12px color-mix(in srgb,var(--texto) 45%,transparent);outline:2px dashed color-mix(in srgb,var(--marca-texto) 55%,transparent);outline-offset:-10px}
+.m3 .carimbo span{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:800}
+.m3 .carimbo strong{font-family:var(--titulo);font-size:38px;line-height:1}
+
+/* Faixa de serviços */
+.m3 .faixa-serv{background:var(--marca);color:var(--marca-texto);padding:16px 0}
+.m3 .mq-item{display:inline-flex;gap:10px;align-items:center;font-weight:800;font-size:17px;white-space:nowrap}
+
+/* Preços em quadro */
+.m3 .precos-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.m3 .quadro{background:var(--card);border:1px solid var(--linha);border-radius:26px;padding:clamp(22px,3vw,36px);box-shadow:0 30px 60px -36px color-mix(in srgb,var(--texto) 50%,transparent)}
+.m3 .quadro .precos-lista{display:block}
+.m3 .preco{display:grid;grid-template-columns:1fr auto;grid-template-areas:"nome valor" "un valor";padding:16px 0;border-bottom:1px dashed color-mix(in srgb,var(--texto) 22%,transparent);gap:0 16px;align-items:center}
+.m3 .preco:last-child{border-bottom:0}
+.m3 .preco-nome{grid-area:nome;text-transform:none;letter-spacing:0;font-size:18px;color:var(--texto)}
+.m3 .preco-un{grid-area:un}
+.m3 .preco-valor{grid-area:valor;font-size:clamp(30px,3.4vw,40px);color:var(--marca-forte)}
+
+/* História */
+.m3 .hist-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,72px);align-items:start}
+.m3 .hist-foto .foto{border-radius:24px}
+.m3 .linha-tempo{position:relative;display:grid;gap:26px;padding-left:40px;list-style:none}
+.m3 .linha-tempo .tracejado-v{position:absolute;left:10px;top:10px;bottom:10px}
+.m3 .linha-tempo li:not(.tracejado-v){position:relative;display:grid;gap:4px}
+.m3 .linha-tempo li:not(.tracejado-v)::before{content:"";position:absolute;left:-37px;top:8px;width:16px;height:16px;border-radius:50%;background:var(--fundo-2);border:3px solid var(--marca)}
+.m3 .t-ano{font-family:var(--titulo);font-size:26px;color:var(--marca-forte);font-weight:700;line-height:1}
+.m3 .linha-tempo p{color:var(--suave)}
+.m3 .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(40px,6vw,64px)}
+.m3 .stat{padding:26px;text-align:center;display:grid;gap:4px}
+.m3 .stat strong{font-family:var(--titulo);font-size:clamp(44px,5vw,60px);color:var(--marca-forte);line-height:1}
+.m3 .stat span{color:var(--suave);font-weight:600}
+
+/* Serviços */
+.m3 .servico{text-align:center;justify-items:center;padding:30px 24px}
+.m3 .servico .ic-servico{width:60px;height:60px;padding:14px;border-radius:50%;background:color-mix(in srgb,var(--destaque) 20%,transparent);color:var(--marca-forte)}
+
+/* Lanchonete */
+.m3 .lanche-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.m3 .lanche-lista{display:grid;gap:12px;margin-top:24px;font-weight:700}
+.m3 .lanche-lista li{display:flex;gap:12px;align-items:center}
+.m3 .lanche-lista .ic{color:var(--marca-forte)}
+.m3 .lanche-foto .foto{border-radius:26px}
+
+/* Galeria polaroide */
+.m3 .gal-polaroid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:30px 26px}
+.m3 .polaroid-in{background:var(--card);padding:12px 12px 14px;border-radius:6px;box-shadow:0 18px 34px -18px color-mix(in srgb,var(--texto) 50%,transparent);transform:rotate(var(--rot,0deg));transition:transform .3s}
+.m3 .polaroid:nth-child(6n+1){--rot:-2deg}.m3 .polaroid:nth-child(6n+2){--rot:1.5deg}.m3 .polaroid:nth-child(6n+3){--rot:-1deg}
+.m3 .polaroid:nth-child(6n+4){--rot:2deg}.m3 .polaroid:nth-child(6n+5){--rot:-1.5deg}.m3 .polaroid:nth-child(6n+6){--rot:1deg}
+.m3 .polaroid-in:hover{transform:rotate(0deg) scale(1.02)}
+.m3 .polaroid .foto{border-radius:3px}
+.m3 .polaroid p{font-family:var(--titulo);font-style:italic;text-align:center;margin-top:10px;font-size:17px}
+
+/* Chamada final */
+.m3 .final-box{padding:clamp(40px,6vw,72px) 24px;border-radius:30px;background:var(--card);border:2px dashed color-mix(in srgb,var(--marca) 45%,transparent)}
+
+@media (max-width:900px){
+  .m3 .hero-grid,.m3 .precos-grid,.m3 .hist-grid,.m3 .lanche-grid{grid-template-columns:1fr}
+  .m3 .hero-visual{justify-self:center}
+  .m3 .carimbo{left:0;width:112px;height:112px}
+  .m3 .carimbo strong{font-size:30px}
+  .m3 .nums{grid-template-columns:1fr}
+}
